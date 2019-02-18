@@ -1,0 +1,29 @@
+{
+  "name": "fitnesstracker2019springproject",
+  "version": "1.0.0",
+  "description": "Fitness Tracker Spring Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanDelbango/FitnessTracker2019SpringProject.git"
+  },
+  "keywords": [
+    "fitness",
+    "tracker"
+  ],
+  "author": "Ryan Delbango",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "bugs": {
+    "url": "https://github.com/RyanDelbango/FitnessTracker2019SpringProject/issues"
+  },
+  "homepage": "https://github.com/RyanDelbango/FitnessTracker2019SpringProject#readme"
+}
