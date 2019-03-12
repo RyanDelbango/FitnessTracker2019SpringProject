@@ -20,6 +20,15 @@ app.get("/:userid", (req, res) => {
 
 });
 
+app.post("/search", (req, res) => {
+
+    user.search(req.body, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
 app.post("/", (req, res) => {
     console.log(req.body)
     user.add(req.body, (err, data) => {

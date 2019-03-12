@@ -13,6 +13,15 @@ const model = {
         })
     
     },
+
+    search(input, cb){
+        conn.query("SELECT * FROM UserPass WHERE userid = ? ", input.userid, (err, data) => {
+        cb(err, data);
+        })
+    
+    },
+
+    
     add(input, cb){
         //if(!input.Password.length < 8){
            // cb(Error('A Longer Password is Required'))
@@ -25,9 +34,6 @@ const model = {
                             cb(err);
                             return;
                         }
-                        model.get(data.insertId, (err, data) => {
-                            cb(err,data);
-                        })
                          cb(err,data);
                      }
         )
