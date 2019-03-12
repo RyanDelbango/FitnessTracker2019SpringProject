@@ -21,6 +21,14 @@ const model = {
     
     },
 
+    login(input, cb){
+        conn.query("SELECT * FROM UserPass WHERE (userid, passcode) = (?) ", [[input.userid, input.passcode]], (err, data) => {
+            cb(err, data);
+            
+            })
+    
+    },
+
     
     add(input, cb){
         //if(!input.Password.length < 8){
