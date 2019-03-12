@@ -33,12 +33,17 @@ app.post("/login", (req, res) => {
 
     user.login(req.body, (err, data) => {
         if(err) throw err;
-        res.send(data);
+        if (data==undefined){
+            return res.status(403).send({
+                error: 'The login information was incorrect'
+              })
+        }
+        else{res.send(data)};
     });
 
 });
 
-app.post("/", (req, res) => {
+app.post("/register", (req, res) => {
     console.log(req.body)
     user.add(req.body, (err, data) => {
         if(err) throw err;
