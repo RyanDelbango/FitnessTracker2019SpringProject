@@ -46,7 +46,12 @@ app.post("/login", (req, res) => {
 app.post("/register", (req, res) => {
     console.log(req.body)
     user.add(req.body, (err, data) => {
-        if(err) throw err;
+        if(req.body.password.length < 8) {res.status(400).send({
+            error: 'Your password was not long enough.' });
+            return;}
+        else if(err) {res.status(400).send({
+            error: 'This email account is already in use.' });
+            return;}
         res.send(data);
     });
 
