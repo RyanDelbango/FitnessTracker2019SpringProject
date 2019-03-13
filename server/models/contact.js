@@ -22,7 +22,7 @@ const model = {
     },
 
     searchCity(input, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where city = ?", input.city, (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where city = ?", input.city, (err, data) => {
         cb(err, data);
         })
     
