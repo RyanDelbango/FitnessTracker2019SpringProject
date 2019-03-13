@@ -16,6 +16,11 @@ const model = {
 
     
     edit(input, cb){
+        if(!input.id){
+            cb(Error('An id is required.'))
+            console.log(Error);
+            return;
+        }
         conn.query("Replace INTO FT_Profiles (id, bio, interests, quotes, heroes) VALUES (?)",
                     [[input.id, input.bio, input.interests, input.quotes, input.heroes]],
                     (err, data) => {
