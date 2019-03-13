@@ -20,9 +20,9 @@ app.get("/:userid", (req, res) => {
 
 });
 
-app.post("/search", (req, res) => {
+app.post("/searchType", (req, res) => {
 
-    user.search(req.body, (err, data) => {
+    user.searchType(req.body, (err, data) => {
         if(err) throw err;
         res.send(data);
     });
@@ -45,6 +45,14 @@ app.post("/login", (req, res) => {
 
 app.post("/create", (req, res) => {
     user.create(req.body, (err, data) => {
+        if(err) throw (err);
+        res.send(data);
+    });
+
+});
+
+app.post("/edit", (req, res) => {
+    user.edit(req.body, (err, data) => {
         if(err) throw (err);
         res.send(data);
     });
