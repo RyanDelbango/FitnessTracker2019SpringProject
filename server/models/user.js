@@ -7,22 +7,22 @@ const model = {
         })
     
     },
-    get(userid, cb){
-        conn.query("SELECT * FROM UserPass WHERE userid=?", userid, (err, data) => {
+    get(id, cb){
+        conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE id=?", id, (err, data) => {
             cb(err, data);  
         })
     
     },
 
     search(input, cb){
-        conn.query("SELECT * FROM UserPass WHERE userid = ? ", input.userid, (err, data) => {
+        conn.query("SELECT firstName, lastName FROM FT_Users WHERE lastName = ? ", input.lastName, (err, data) => {
         cb(err, data);
         })
     
     },
 
     login(input, cb){
-        conn.query("SELECT firstName, lastName, email FROM FT_Users WHERE (email, password) = (?) ", [[input.email, input.password]], (err, data) => {
+        conn.query("SELECT id, firstName, lastName, email FROM FT_Users WHERE (email, password) = (?) ", [[input.email, input.password]], (err, data) => {
             if (data.length == 0){
                  cb(err)
             }
