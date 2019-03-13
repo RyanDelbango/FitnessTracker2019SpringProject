@@ -1,5 +1,5 @@
 const express = require('express');
-const user = require('../models/user')
+const user = require('../models/exerciselog')
 
 const app = express.Router();
 
@@ -43,15 +43,9 @@ app.post("/login", (req, res) => {
 
 });
 
-app.post("/register", (req, res) => {
-    console.log(req.body)
-    user.add(req.body, (err, data) => {
-        if(req.body.password.length < 8) {res.status(400).send({
-            error: 'Your password was not long enough.' });
-            return;}
-        else if(err) {res.status(400).send({
-            error: 'This email account is already in use.' });
-            return;}
+app.post("/create", (req, res) => {
+    user.create(req.body, (err, data) => {
+        if(err) throw (err);
         res.send(data);
     });
 

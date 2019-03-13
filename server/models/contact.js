@@ -28,8 +28,6 @@ const model = {
     
     },
 
-
-    
     edit(input, cb){
         if(!input.id){
             cb(Error('An id is required.'))

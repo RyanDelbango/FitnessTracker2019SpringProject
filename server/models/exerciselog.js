@@ -2,7 +2,7 @@ const conn = require('./mysql_connection');
 
 const model = {
     getAll(cb){
-        conn.query("SELECT id, firstName, lastName FROM FT_Users", (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName, log_id, date, type, minutes, notes, friend_id FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id", (err, data) => {
             cb(err, data);  
         })
     
@@ -32,13 +32,14 @@ const model = {
     },
 
     
-    add(input, cb){
-        if(input.password.length < 8){
-            cb(Error('A Longer Password is Required'))
+    create(input, cb){
+        if(!input.id){
+            cb(Error('An id is required.'))
+            console.log(Error);
             return;
         }
-        conn.query( "INSERT INTO FT_Users (firstName, lastName, email, password) VALUES (?)",
-                    [[input.firstName, input.lastName, input.email, input.password]],
+        conn.query("INSERT INTO FT_ExerciseLogs (id, date, minutes, type, friend_id, notes) VALUES (?)",
+                    [[input.id, input.date, input.minutes, input.type, input.friend_id, input.notes]],
                     (err, data) => {
                         if (err) {
                             cb(err);
@@ -48,6 +49,7 @@ const model = {
                      }
         )
     }
+    
 };
 
 module.exports = model;
