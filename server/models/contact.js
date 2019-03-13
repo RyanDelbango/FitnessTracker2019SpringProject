@@ -14,22 +14,20 @@ const model = {
     
     },
 
-    search(input, cb){
-        conn.query("SELECT firstName, lastName FROM FT_Users WHERE lastName = ? ", input.lastName, (err, data) => {
+    searchState(input, cb){
+        conn.query("SELECT FT_Users.id, firstName, lastName, city, state FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where state = ?", input.state, (err, data) => {
         cb(err, data);
         })
     
     },
 
-    login(input, cb){
-        conn.query("SELECT id, firstName, lastName, email FROM FT_Users WHERE (email, password) = (?) ", [[input.email, input.password]], (err, data) => {
-            if (data.length == 0){
-                 cb(err)
-            }
-            else{
-                cb(err, data)}      
-            })
+    searchCity(input, cb){
+        conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where city = ?", input.city, (err, data) => {
+        cb(err, data);
+        })
+    
     },
+
 
     
     edit(input, cb){

@@ -20,25 +20,20 @@ app.get("/:userid", (req, res) => {
 
 });
 
-app.post("/search", (req, res) => {
+app.post("/SearchState", (req, res) => {
 
-    user.search(req.body, (err, data) => {
+    user.searchState(req.body, (err, data) => {
         if(err) throw err;
         res.send(data);
     });
 
 });
 
-app.post("/login", (req, res) => {
+app.post("/SearchCity", (req, res) => {
 
-    user.login(req.body, (err, data) => {
+    user.searchCity(req.body, (err, data) => {
         if(err) throw err;
-        if (data==undefined){
-            return res.status(403).send({
-                error: 'The login information was incorrect'
-              })
-        }
-        else{res.send(data)};
+        res.send(data);
     });
 
 });

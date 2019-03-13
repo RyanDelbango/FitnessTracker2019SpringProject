@@ -16,4 +16,4 @@ app.use('/profiles', profiles);
 app.use('/contacts', contacts);
 
 
-app.listen(port, () => console.log(`Example app http://localhost:${port}`));
+app.listen(port, () => console.log(`Exercise app http://localhost:${port}`));
