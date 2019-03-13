@@ -20,32 +20,9 @@ app.get("/:userid", (req, res) => {
 
 });
 
-app.post("/search", (req, res) => {
-
-    user.search(req.body, (err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
-});
-
-app.post("/login", (req, res) => {
-
-    user.login(req.body, (err, data) => {
-        if(err) throw err;
-        if (data==undefined){
-            return res.status(403).send({
-                error: 'The login information was incorrect'
-              })
-        }
-        else{res.send(data)};
-    });
-
-});
-
 app.post("/edit", (req, res) => {
     console.log(req.body)
-    user.add(req.body, (err, data) => {
+    user.edit(req.body, (err, data) => {
         if(err) throw (err);
         res.send(data);
     });
