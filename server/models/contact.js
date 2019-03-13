@@ -8,7 +8,7 @@ const model = {
     
     },
     get(id, cb){
-        conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE id=?", id, (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where FT_Users.id = ?", id, (err, data) => {
             cb(err, data);  
         })
     
@@ -33,6 +33,11 @@ const model = {
 
     
     edit(input, cb){
+        if(!input.id){
+            cb(Error('An id is required.'))
+            console.log(Error);
+            return;
+        }
         conn.query("Replace INTO FT_Contacts (id, phone, address, city, state, country) VALUES (?)",
                     [[input.id, input.phone, input.address, input.city, input.state, input.country]],
                     (err, data) => {
