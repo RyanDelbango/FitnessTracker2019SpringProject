@@ -1,5 +1,5 @@
 const express = require('express');
-const user = require('../models/user')
+const user = require('../models/friend')
 
 const app = express.Router();
 
@@ -20,38 +20,19 @@ app.get("/:userid", (req, res) => {
 
 });
 
-app.post("/search", (req, res) => {
+app.post("/searchlastName", (req, res) => {
 
-    user.search(req.body, (err, data) => {
+    user.searchlastName(req.body, (err, data) => {
         if(err) throw err;
         res.send(data);
     });
 
 });
 
-app.post("/login", (req, res) => {
-
-    user.login(req.body, (err, data) => {
-        if(err) throw err;
-        if (data==undefined){
-            return res.status(403).send({
-                error: 'The login information was incorrect'
-              })
-        }
-        else{res.send(data)};
-    });
-
-});
-
-app.post("/register", (req, res) => {
+app.post("/add", (req, res) => {
     console.log(req.body)
     user.add(req.body, (err, data) => {
-        if(req.body.password.length < 8) {res.status(400).send({
-            error: 'Your password was not long enough.' });
-            return;}
-        else if(err) {res.status(400).send({
-            error: 'This email account is already in use.' });
-            return;}
+        if(err) throw (err);
         res.send(data);
     });
 

@@ -2,43 +2,32 @@ const conn = require('./mysql_connection');
 
 const model = {
     getAll(cb){
-        conn.query("SELECT id, firstName, lastName FROM FT_Users", (err, data) => {
+        conn.query("SELECT FT_Users.id, friend_id FROM FT_Users JOIN FT_Friends on FT_Users.id = FT_Friends.id", (err, data) => {
             cb(err, data);  
         })
     
     },
     get(id, cb){
-        conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE id=?", id, (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName FROM FT_Users JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE FT_Friends.id = ?", id, (err, data) => {
             cb(err, data);  
         })
     
     },
 
-    search(input, cb){
-        conn.query("SELECT firstName, lastName FROM FT_Users WHERE lastName = ? ", input.lastName, (err, data) => {
+    searchlastName(input, cb){
+        conn.query("SELECT FT_Users.id, firstName, lastName FROM FT_Users JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE (FT_Friends.id, lastName) = (?) ", [[input.id, input.lastName]], (err, data) => {
         cb(err, data);
         })
     
     },
-
-    login(input, cb){
-        conn.query("SELECT id, firstName, lastName, email FROM FT_Users WHERE (email, password) = (?) ", [[input.email, input.password]], (err, data) => {
-            if (data.length == 0){
-                 cb(err)
-            }
-            else{
-                cb(err, data)}      
-            })
-    },
-
     
     add(input, cb){
-        if(input.password.length < 8){
-            cb(Error('A Longer Password is Required'))
+        if(!input.id || !input.friend_id){
+            cb(Error('An id and a friend id required'))
             return;
         }
-        conn.query( "INSERT INTO FT_Users (firstName, lastName, email, password) VALUES (?)",
-                    [[input.firstName, input.lastName, input.email, input.password]],
+        conn.query( "REPLACE INTO FT_Friends (id, friend_id) VALUES (?)",
+                    [[input.id, input.friend_id]],
                     (err, data) => {
                         if (err) {
                             cb(err);
