@@ -29,6 +29,15 @@ app.post("/searchlastName", (req, res) => {
 
 });
 
+app.post("/browse", (req, res) => {
+
+    user.browse(req.body, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
 app.post("/add", (req, res) => {
     console.log(req.body)
     user.add(req.body, (err, data) => {
