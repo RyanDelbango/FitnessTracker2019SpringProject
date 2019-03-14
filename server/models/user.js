@@ -1,5 +1,6 @@
 const conn = require('./mysql_connection');
 
+
 const model = {
     getAll(cb){
         conn.query("SELECT id, firstName, lastName FROM FT_Users", (err, data) => {

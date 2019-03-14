@@ -20,6 +20,15 @@ app.get("/:userid", (req, res) => {
 
 });
 
+app.get("/friends/:userid", (req, res) => {
+
+    user.friends(req.params.userid, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
 app.get("/averageWeight/:userid", (req, res) => {
 
     user.averageW(req.params.userid, (err, data) => {
