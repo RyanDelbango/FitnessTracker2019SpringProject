@@ -22,9 +22,9 @@ const model = {
     },
 
     
-    create(input, cb){
+    create(userid, idTo, input, cb){
         conn.query( "INSERT INTO FT_Messages (id, idTo, message) VALUES (?)",
-                    [[input.id, input.idTo, input.message]],
+                    [[userid, idTo, input.message]],
                     (err, data) => {
                         if (err) {
                             cb(err);

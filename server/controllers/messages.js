@@ -30,9 +30,8 @@ app.post("/search", (req, res) => {
 });
 
 
-app.post("/sendmessage", (req, res) => {
-    console.log(req.body)
-    user.create(req.body, (err, data) => {
+app.post("/sendmessage/:userid/:idTo", (req, res) => {
+    user.create(req.params.userid, req.params.idTo, req.body, (err, data) => {
         if (err) throw (err)
         res.send(data);
     });
