@@ -2,7 +2,7 @@ const conn = require('./mysql_connection');
 
 const model = {
     getAll(cb){
-        conn.query("SELECT id, firstName, lastName FROM FT_Users", (err, data) => {
+        conn.query("SELECT id, idTo, message FROM FT_Messages", (err, data) => {
             cb(err, data);  
         })
     
@@ -21,24 +21,10 @@ const model = {
     
     },
 
-    login(input, cb){
-        conn.query("SELECT id, firstName, lastName, email FROM FT_Users WHERE (email, password) = (?) ", [[input.email, input.password]], (err, data) => {
-            if (data.length == 0){
-                 cb(err)
-            }
-            else{
-                cb(err, data)}      
-            })
-    },
-
     
-    add(input, cb){
-        if(input.password.length < 8){
-            cb(Error('A Longer Password is Required'))
-            return;
-        }
-        conn.query( "INSERT INTO FT_Users (firstName, lastName, email, password) VALUES (?)",
-                    [[input.firstName, input.lastName, input.email, input.password]],
+    create(input, cb){
+        conn.query( "INSERT INTO FT_Messages (id, idTo, message) VALUES (?)",
+                    [[input.id, input.idTo, input.message]],
                     (err, data) => {
                         if (err) {
                             cb(err);

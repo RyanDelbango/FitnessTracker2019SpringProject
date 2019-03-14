@@ -6,6 +6,7 @@ const contacts = require('./controllers/contacts');
 const exerciselogs = require('./controllers/exerciselogs');
 const foodlogs = require('./controllers/foodlogs');
 const friends = require('./controllers/friends');
+const messages = require('./controllers/messages');
 
 const app = express();
 const port = 3000;
@@ -20,6 +21,7 @@ app.use('/contacts', contacts);
 app.use('/exerciselogs', exerciselogs);
 app.use('/foodlogs', foodlogs);
 app.use('/friends', friends);
+app.use('/messages', messages);
 
 
 app.listen(port, () => console.log(`Exercise app http://localhost:${port}`));
