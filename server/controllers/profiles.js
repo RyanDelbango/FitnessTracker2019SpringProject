@@ -20,9 +20,8 @@ app.get("/:userid", (req, res) => {
 
 });
 
-app.post("/edit", (req, res) => {
-    console.log(req.body)
-    user.edit(req.body, (err, data) => {
+app.post("/edit/:userid", (req, res) => {
+    user.edit(req.params.userid, req.body, (err, data) => {
         if(err) throw (err);
         res.send(data);
     });
