@@ -1,5 +1,5 @@
 const express = require('express');
-const user = require('../models/foodlog')
+const user = require('../models/foodlog');
 
 const app = express.Router();
 
