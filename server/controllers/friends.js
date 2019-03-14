@@ -38,9 +38,8 @@ app.post("/browse", (req, res) => {
 
 });
 
-app.post("/add", (req, res) => {
-    console.log(req.body)
-    user.add(req.body, (err, data) => {
+app.post("/add/:userid/:friendid", (req, res) => {
+    user.add(req.params.userid, req.params.friendid, (err, data) => {
         if(err) throw (err);
         res.send(data);
     });

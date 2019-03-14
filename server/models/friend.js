@@ -28,13 +28,9 @@ const model = {
     
     },
     
-    add(input, cb){
-        if(!input.id || !input.friend_id){
-            cb(Error('An id and a friend id required'))
-            return;
-        }
+    add(userid, friendid, cb){
         conn.query( "REPLACE INTO FT_Friends (id, friend_id) VALUES (?)",
-                    [[input.id, input.friend_id]],
+                    [[userid, friendid]],
                     (err, data) => {
                         if (err) {
                             cb(err);
