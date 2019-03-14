@@ -20,6 +20,15 @@ app.get("/:userid", (req, res) => {
 
 });
 
+app.get("/friends/:userid", (req, res) => {
+
+    user.friends(req.params.userid, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
 app.get("/totalcalories/:userid", (req, res) => {
 
     user.total(req.params.userid, (err, data) => {

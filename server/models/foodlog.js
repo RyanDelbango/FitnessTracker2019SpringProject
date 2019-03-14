@@ -14,6 +14,13 @@ const model = {
     
     },
 
+    friends(id, cb){
+        conn.query("SELECT FT_Friends.friend_id, firstName, lastName, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks FROM FT_Users JOIN FT_FoodLogs on FT_Users.id = FT_FoodLogs.id JOIN FT_Friends on FT_Friends.friend_id = FT_Users.id WHERE FT_Friends.id = ? ORDER BY log_id DESC", id, (err, data) => {
+            cb(err, data); 
+        })
+    
+    },
+
     total(id, cb){
         conn.query("SELECT SUM(bcalories + lcalories + dcalories) AS 'Total Calories' FROM FT_FoodLogs", id, (err, data) => {
         cb(err, data);
