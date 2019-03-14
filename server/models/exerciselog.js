@@ -8,7 +8,7 @@ const model = {
     
     },
     get(id, cb){
-        conn.query("SELECT log_id, FT_Users.id, firstName, lastName, day, month, year, weight, minutes, notes FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id WHERE FT_Users.id = ?", id, (err, data) => {
+        conn.query("SELECT log_id, FT_Users.id, firstName, lastName, day, month, year, weight, type, minutes, notes FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id WHERE FT_Users.id = ?", id, (err, data) => {
             cb(err, data); 
         })
     
@@ -35,14 +35,9 @@ const model = {
     
     },
     
-    create(input, cb){
-        if(!input.id){
-            cb(Error('An id is required.'))
-            console.log(Error);
-            return;
-        }
+    create(userid, input, cb){
         conn.query("INSERT INTO FT_ExerciseLogs (id, day, month, year, weight, minutes, type, notes) VALUES (?)",
-                    [[input.id, input.day, input.month, input.year, input.weight, input.minutes, input.type, input.notes]],
+                    [[userid, input.day, input.month, input.year, input.weight, input.minutes, input.type, input.notes]],
                     (err, data) => {
                         if (err) {
                             cb(err);
@@ -53,14 +48,9 @@ const model = {
         )
     },
 
-    edit(input, cb){
-        if(!input.log_id || !input.id){
-            cb(Error('A log_id is required.'))
-            console.log(Error);
-            return;
-        }
-        conn.query("REPLACE INTO FT_ExerciseLogs (log_id, id, day, month, year, weight, minutes, type, notes) VALUES (?)",
-                    [[input.log_id, input.id, input.day, input.month, input.year, input.weight, input.minutes, input.type, input.notes]],
+    edit(userid, logid, input, cb){
+        conn.query("REPLACE INTO FT_ExerciseLogs (id, log_id, day, month, year, weight, minutes, type, notes) VALUES (?)",
+                    [[userid, logid, input.day, input.month, input.year, input.weight, input.minutes, input.type, input.notes]],
                     (err, data) => {
                         if (err) {
                             cb(err);

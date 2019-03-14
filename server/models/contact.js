@@ -29,11 +29,6 @@ const model = {
     },
 
     edit(userid, input, cb){
-/*         if(!input.id){
-            cb(Error('An id is required.'))
-            console.log(Error);
-            return;
-        } */
         conn.query("Replace INTO FT_Contacts (id, phone, address, city, state, country) VALUES (?)",
                     [[userid, input.phone, input.address, input.city, input.state, input.country]],
                     (err, data) => {
