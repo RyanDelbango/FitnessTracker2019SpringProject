@@ -20,9 +20,18 @@ app.get("/:userid", (req, res) => {
 
 });
 
-app.get("/total/:userid", (req, res) => {
+app.get("/totalcalories/:userid", (req, res) => {
 
     user.total(req.params.userid, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
+app.get("/averagecalories/:userid", (req, res) => {
+
+    user.average(req.params.userid, (err, data) => {
         if(err) throw err;
         res.send(data);
     });

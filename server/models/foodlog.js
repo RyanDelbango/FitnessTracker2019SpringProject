@@ -20,6 +20,13 @@ const model = {
         })
     
     },
+
+    average(id, cb){
+        conn.query("SELECT month, year, AVG(bcalories + lcalories + dcalories) AS 'Average Calories Per Month' FROM FT_FoodLogs GROUP BY month, year", id, (err, data) => {
+        cb(err, data);
+        })
+    
+    },
     
     create(input, cb){
         if(!input.id){
