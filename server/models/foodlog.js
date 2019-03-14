@@ -28,14 +28,9 @@ const model = {
     
     },
     
-    create(input, cb){
-        if(!input.id){
-            cb(Error('An id is required.'))
-            console.log(Error);
-            return;
-        }
+    create(userid, input, cb){
         conn.query("INSERT INTO FT_FoodLogs (id, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks) VALUES (?)",
-                    [[input.id, input.day, input.month, input.year, input.bcalories, input.lcalories, input.dcalories, input.scalories, input.breakfast, input.lunch, input.dinner, input.snacks]],
+                    [[userid, input.day, input.month, input.year, input.bcalories, input.lcalories, input.dcalories, input.scalories, input.breakfast, input.lunch, input.dinner, input.snacks]],
                     (err, data) => {
                         if (err) {
                             cb(err);
@@ -46,14 +41,9 @@ const model = {
         )
     },
 
-    edit(input, cb){
-        if(!input.log_id || !input.id){
-            cb(Error('A log_id is required.'))
-            console.log(Error);
-            return;
-        }
-        conn.query("REPLACE INTO FT_FoodLogs (log_id, id, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks) VALUES (?)",
-        [[input.log_id, input.id, input.day, input.month, input.year, input.bcalories, input.lcalories, input.dcalories, input.scalories, input.breakfast, input.lunch, input.dinner, input.snacks]],
+    edit(userid, logid, input, cb){
+        conn.query("REPLACE INTO FT_FoodLogs (id, log_id, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks) VALUES (?)",
+        [[userid, logid, input.day, input.month, input.year, input.bcalories, input.lcalories, input.dcalories, input.scalories, input.breakfast, input.lunch, input.dinner, input.snacks]],
                     (err, data) => {
                         if (err) {
                             cb(err);

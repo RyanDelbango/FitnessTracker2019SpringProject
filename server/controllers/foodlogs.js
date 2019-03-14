@@ -38,16 +38,16 @@ app.get("/averagecalories/:userid", (req, res) => {
 
 });
 
-app.post("/create", (req, res) => {
-    user.create(req.body, (err, data) => {
+app.post("/create/:userid", (req, res) => {
+    user.create(req.params.userid, req.body, (err, data) => {
         if(err) throw (err)
         res.send(data);
     });
 
 });
 
-app.post("/edit", (req, res) => {
-    user.edit(req.body, (err, data) => {
+app.post("/edit/:userid/:logid", (req, res) => {
+    user.edit(req.params.userid, req.params.logid, req.body, (err, data) => {
         if(err) throw (err);
         res.send(data);
     });
