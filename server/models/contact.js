@@ -28,14 +28,14 @@ const model = {
     
     },
 
-    edit(input, cb){
-        if(!input.id){
+    edit(userid, input, cb){
+/*         if(!input.id){
             cb(Error('An id is required.'))
             console.log(Error);
             return;
-        }
+        } */
         conn.query("Replace INTO FT_Contacts (id, phone, address, city, state, country) VALUES (?)",
-                    [[input.id, input.phone, input.address, input.city, input.state, input.country]],
+                    [[userid, input.phone, input.address, input.city, input.state, input.country]],
                     (err, data) => {
                         if (err) {
                             cb(err);
