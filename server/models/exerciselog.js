@@ -20,6 +20,20 @@ const model = {
         })
     
     },
+
+    averageW(id, cb){
+        conn.query("SELECT AVG(weight) AS 'Average weight' FROM FT_ExerciseLogs", id, (err, data) => {
+        cb(err, data);
+        })
+    
+    },
+
+    averageT(id, cb){
+        conn.query("SELECT AVG(minutes) AS 'Average time exercising in minutes' FROM FT_ExerciseLogs", id, (err, data) => {
+        cb(err, data);
+        })
+    
+    },
     
     create(input, cb){
         if(!input.id){

@@ -20,6 +20,24 @@ app.get("/:userid", (req, res) => {
 
 });
 
+app.get("/averageWeight/:userid", (req, res) => {
+
+    user.averageW(req.params.userid, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
+app.get("/averageTime/:userid", (req, res) => {
+
+    user.averageT(req.params.userid, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
 app.post("/searchType", (req, res) => {
 
     user.searchType(req.body, (err, data) => {
