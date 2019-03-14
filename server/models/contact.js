@@ -14,6 +14,13 @@ const model = {
     
     },
 
+    friends(id, cb){
+        conn.query("SELECT FT_Friends.friend_id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE FT_Friends.id = ?", id, (err, data) => {
+            cb(err, data); 
+        })
+    
+    },
+
     searchState(input, cb){
         conn.query("SELECT FT_Users.id, firstName, lastName, city, state FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where state = ?", input.state, (err, data) => {
         cb(err, data);
