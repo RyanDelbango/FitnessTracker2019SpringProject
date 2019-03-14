@@ -29,20 +29,6 @@ app.post("/searchType", (req, res) => {
 
 });
 
-app.post("/login", (req, res) => {
-
-    user.login(req.body, (err, data) => {
-        if(err) throw err;
-        if (data==undefined){
-            return res.status(403).send({
-                error: 'The login information was incorrect'
-              })
-        }
-        else{res.send(data)};
-    });
-
-});
-
 app.post("/create", (req, res) => {
     user.create(req.body, (err, data) => {
         if(err) throw (err);

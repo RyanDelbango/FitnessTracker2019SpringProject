@@ -14,8 +14,8 @@ const model = {
     
     },
 
-    total(cb){
-        conn.query("SELECT AVG(bcalories) FROM FT_FoodLogs", (err, data) => {
+    total(id, cb){
+        conn.query("SELECT SUM(bcalories + lcalories + dcalories) AS 'Total Calories' FROM FT_FoodLogs", id, (err, data) => {
         cb(err, data);
         })
     

@@ -20,9 +20,9 @@ app.get("/:userid", (req, res) => {
 
 });
 
-app.get("/total", (req, res) => {
+app.get("/total/:userid", (req, res) => {
 
-    user.total((err, data) => {
+    user.total(req.params.userid, (err, data) => {
         if(err) throw err;
         res.send(data);
     });
