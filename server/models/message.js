@@ -14,6 +14,13 @@ const model = {
     
     },
 
+    friends(id, cb){
+        conn.query("SELECT FT_Friends.friend_id, firstName, lastName, message FROM FT_Users JOIN FT_Messages on FT_Users.id = FT_Messages.id JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE FT_Friends.id = ?", id, (err, data) => {
+            cb(err, data); 
+        })
+    
+    },
+
     search(input, cb){
         conn.query("SELECT id, idTo, message FROM FT_Messages WHERE message LIKE '%' ? '%' ", input.message, (err, data) => {
         cb(err, data);
