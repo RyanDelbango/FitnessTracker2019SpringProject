@@ -4,6 +4,7 @@ const users =  require('./controllers/users');
 const profiles = require('./controllers/profiles');
 const contacts = require('./controllers/contacts');
 const exerciselogs = require('./controllers/exerciselogs');
+const foodlogs = require('./controllers/foodlogs');
 const friends = require('./controllers/friends');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use('/users', users);
 app.use('/profiles', profiles);
 app.use('/contacts', contacts);
 app.use('/exerciselogs', exerciselogs);
+app.use('/foodlogs', foodlogs);
 app.use('/friends', friends);
 
 
