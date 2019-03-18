@@ -29,9 +29,9 @@ app.post("/searchlastName", (req, res) => {
 
 });
 
-app.get("/browse/:userid", (req, res) => {
+app.post("/browse", (req, res) => {
 
-    user.browse(req.params.userid, (err, data) => {
+    user.browse(req.body, (err, data) => {
         if(err) throw err;
         res.send(data);
     });

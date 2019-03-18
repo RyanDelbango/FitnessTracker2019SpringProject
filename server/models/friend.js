@@ -21,8 +21,8 @@ const model = {
     
     },
 
-    browse(userid, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName FROM FT_Users JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE (FT_Friends.id) = (?) ", userid, (err, data) => {
+    browse(input, cb){
+        conn.query("SELECT FT_Users.id, firstName, lastName FROM FT_Users JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE (FT_Friends.id) = (?) ", [[input.id]], (err, data) => {
         cb(err, data);
         })
     
