@@ -23,7 +23,7 @@ app.get("/:userid", (req, res) => {
 
 });
 
-//Search Users by last name
+// Search Users by last name
 app.post("/search", (req, res) => {
 
     user.search(req.body, (err, data) => {
