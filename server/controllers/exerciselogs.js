@@ -23,6 +23,16 @@ app.get("/:userid", (req, res) => {
 
 });
 
+// Get a particular exercise log
+app.get("/logs/:log_id", (req, res) => {
+
+    user.getLog(req.params.log_id, (err, data) => {
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+
 // Get exercise logs of friends
 app.get("/friends/:userid", (req, res) => {
 

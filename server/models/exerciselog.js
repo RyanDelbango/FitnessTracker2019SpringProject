@@ -14,6 +14,13 @@ const model = {
     
     },
 
+    getLog(log_id, cb){
+        conn.query("SELECT log_id, FT_Users.id, firstName, lastName, day, month, year, weight, type, minutes, notes FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id WHERE log_id = ?", log_id, (err, data) => {
+            cb(err, data); 
+        })
+    
+    },
+
     friends(id, cb){
         conn.query("SELECT log_id, FT_Friends.friend_id, firstName, lastName, day, month, year, weight, type, minutes, notes FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE FT_Friends.id = ?", id, (err, data) => {
             cb(err, data); 
