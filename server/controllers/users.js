@@ -3,6 +3,7 @@ const user = require('../models/user')
 
 const app = express.Router();
 
+// Get all user information
 app.get("/", (req, res) => {
 
     user.getAll((err, data) => {
@@ -11,6 +12,8 @@ app.get("/", (req, res) => {
     });
 
 });
+
+// Get user information of a particular User
 app.get("/:userid", (req, res) => {
 
     user.get(req.params.userid, (err, data) => {
@@ -20,6 +23,7 @@ app.get("/:userid", (req, res) => {
 
 });
 
+//Search Users by last name
 app.post("/search", (req, res) => {
 
     user.search(req.body, (err, data) => {
@@ -29,6 +33,7 @@ app.post("/search", (req, res) => {
 
 });
 
+// Login to app
 app.post("/login", (req, res) => {
 
     user.login(req.body, (err, data) => {
@@ -43,6 +48,7 @@ app.post("/login", (req, res) => {
 
 });
 
+//Register to app
 app.post("/register", (req, res) => {
     console.log(req.body)
     user.add(req.body, (err, data) => {

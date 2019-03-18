@@ -3,6 +3,7 @@ const user = require('../models/friend')
 
 const app = express.Router();
 
+// View All Frienships
 app.get("/", (req, res) => {
 
     user.getAll((err, data) => {
@@ -11,6 +12,8 @@ app.get("/", (req, res) => {
     });
 
 });
+
+// View Friends of a particular user
 app.get("/:userid", (req, res) => {
 
     user.get(req.params.userid, (err, data) => {
@@ -20,6 +23,7 @@ app.get("/:userid", (req, res) => {
 
 });
 
+// Search by last name
 app.post("/searchlastName", (req, res) => {
 
     user.searchlastName(req.body, (err, data) => {
@@ -29,6 +33,7 @@ app.post("/searchlastName", (req, res) => {
 
 });
 
+// Browse friends by post request
 app.post("/browse", (req, res) => {
 
     user.browse(req.body, (err, data) => {
@@ -38,6 +43,7 @@ app.post("/browse", (req, res) => {
 
 });
 
+//Add Friends
 app.post("/add/:userid/:friendid", (req, res) => {
     user.add(req.params.userid, req.params.friendid, (err, data) => {
         if(err) throw (err);

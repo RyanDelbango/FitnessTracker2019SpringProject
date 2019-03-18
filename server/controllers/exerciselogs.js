@@ -3,6 +3,7 @@ const user = require('../models/exerciselog')
 
 const app = express.Router();
 
+// Get all exercise logs from all users
 app.get("/", (req, res) => {
 
     user.getAll((err, data) => {
@@ -11,6 +12,8 @@ app.get("/", (req, res) => {
     });
 
 });
+
+// Get exercise logs of a particular user
 app.get("/:userid", (req, res) => {
 
     user.get(req.params.userid, (err, data) => {
@@ -20,6 +23,7 @@ app.get("/:userid", (req, res) => {
 
 });
 
+// Get exercise logs of friends
 app.get("/friends/:userid", (req, res) => {
 
     user.friends(req.params.userid, (err, data) => {
@@ -29,6 +33,7 @@ app.get("/friends/:userid", (req, res) => {
 
 });
 
+// Get average weight monthly weight of a user
 app.get("/averageWeight/:userid", (req, res) => {
 
     user.averageW(req.params.userid, (err, data) => {
@@ -38,6 +43,7 @@ app.get("/averageWeight/:userid", (req, res) => {
 
 });
 
+// Get average monthly time working out of a user
 app.get("/averageTime/:userid", (req, res) => {
 
     user.averageT(req.params.userid, (err, data) => {
@@ -47,6 +53,7 @@ app.get("/averageTime/:userid", (req, res) => {
 
 });
 
+// Search exercise logs for a particular type of exercise
 app.post("/searchType", (req, res) => {
 
     user.searchType(req.body, (err, data) => {
@@ -56,6 +63,7 @@ app.post("/searchType", (req, res) => {
 
 });
 
+// Create an exercise log
 app.post("/create/:userid", (req, res) => {
     user.create(req.params.userid, req.body, (err, data) => {
         if(err) throw (err);
@@ -64,6 +72,7 @@ app.post("/create/:userid", (req, res) => {
 
 });
 
+// Edit an exercise log
 app.post("/edit/:userid/:logid", (req, res) => {
     user.edit(req.params.userid, req.params.logid, req.body, (err, data) => {
         if(err) throw (err);

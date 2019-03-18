@@ -3,6 +3,7 @@ const user = require('../models/contact');
 
 const app = express.Router();
 
+// Get contact information of all users
 app.get("/", (req, res) => {
 
     user.getAll((err, data) => {
@@ -11,6 +12,8 @@ app.get("/", (req, res) => {
     });
 
 });
+
+//Get contact information of a particular user
 app.get("/:userid", (req, res) => {
 
     user.get(req.params.userid, (err, data) => {
@@ -20,6 +23,7 @@ app.get("/:userid", (req, res) => {
 
 });
 
+//Get contact information of friends
 app.get("/friends/:userid", (req, res) => {
 
     user.friends(req.params.userid, (err, data) => {
@@ -29,6 +33,7 @@ app.get("/friends/:userid", (req, res) => {
 
 });
 
+//Search users by state
 app.post("/SearchState", (req, res) => {
 
     user.searchState(req.body, (err, data) => {
@@ -38,6 +43,7 @@ app.post("/SearchState", (req, res) => {
 
 });
 
+//Search Users by city
 app.post("/SearchCity", (req, res) => {
 
     user.searchCity(req.body, (err, data) => {
@@ -47,6 +53,7 @@ app.post("/SearchCity", (req, res) => {
 
 });
 
+//Edit user Contact Information
 app.post("/edit/:userid", (req, res) => {
     user.edit(req.params.userid, req.body, (err, data) => {
         if(err) throw (err);
