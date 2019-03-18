@@ -3,7 +3,7 @@ const user = require('../models/friend')
 
 const app = express.Router();
 
-// View All Frienships
+// View All Friendships
 app.get("/", (req, res) => {
 
     user.getAll((err, data) => {
