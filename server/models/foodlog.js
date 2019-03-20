@@ -16,7 +16,7 @@ const model = {
     },
 
     getLog(log_id, cb){
-        conn.query("SELECT FT_FoodLogs.log_id, firstName, lastName, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks, COUNT(comment) AS 'Number of Comments' FROM FT_Users JOIN FT_FoodLogs on FT_Users.id = FT_FoodLogs.id JOIN FT_FoodComments on FT_FoodLogs.log_id = FT_FoodComments.log_id WHERE FT_FoodLogs.log_id = ? ORDER BY log_id DESC", log_id, (err, data) => {
+        conn.query("SELECT FT_FoodLogs.log_id, firstName, lastName, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks, COUNT(comment) AS 'Number of Comments' FROM FT_Users JOIN FT_FoodLogs on FT_Users.id = FT_FoodLogs.id JOIN FT_FoodComments on FT_FoodLogs.log_id = FT_FoodComments.log_id WHERE FT_FoodLogs.log_id = ?", log_id, (err, data) => {
             cb(err, data); 
         })
     
