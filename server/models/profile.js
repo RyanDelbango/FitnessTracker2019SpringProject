@@ -8,7 +8,7 @@ const model = {
     
     },
     get(id, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, email, bio, interests, quotes, heroes FROM FT_Users JOIN FT_Profiles on FT_Users.id = FT_Profiles.id where FT_Users.id = ?", id, (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName, email, bio, interests, quotes, heroes FROM FT_Users JOIN FT_Profiles on FT_Users.id = FT_Profiles.id WHERE FT_Users.id = ?", id, (err, data) => {
             cb(err, data);  
         })
     

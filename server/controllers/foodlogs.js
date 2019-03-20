@@ -43,7 +43,7 @@ app.get("/friends/:userid", (req, res) => {
 
 });
 
-// Total calories consumbed by a user
+// Total daily calories consumbed by a user
 app.get("/totalcalories/:userid", (req, res) => {
 
     user.total(req.params.userid, (err, data) => {
@@ -53,7 +53,7 @@ app.get("/totalcalories/:userid", (req, res) => {
 
 });
 
-//Average monthly calories by user
+// Average monthly calories by user
 app.get("/averagecalories/:userid", (req, res) => {
 
     user.average(req.params.userid, (err, data) => {

@@ -36,14 +36,14 @@ const model = {
     },
 
     averageW(id, cb){
-        conn.query("SELECT AVG(weight) AS 'Average weight' FROM FT_ExerciseLogs", id, (err, data) => {
+        conn.query("SELECT month, year, AVG(weight) AS 'Average weight' FROM FT_ExerciseLogs WHERE id=? GROUP BY month, year", id, (err, data) => {
         cb(err, data);
         })
     
     },
 
     averageT(id, cb){
-        conn.query("SELECT AVG(minutes) AS 'Average time exercising in minutes' FROM FT_ExerciseLogs", id, (err, data) => {
+        conn.query("SELECT month, year, AVG(minutes) AS 'Average time exercising in minutes' FROM FT_ExerciseLogs WHERE id=? GROUP BY month, year", id, (err, data) => {
         cb(err, data);
         })
     

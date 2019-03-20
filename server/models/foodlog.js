@@ -29,14 +29,14 @@ const model = {
     },
 
     total(id, cb){
-        conn.query("SELECT SUM(bcalories + lcalories + dcalories) AS 'Total Calories' FROM FT_FoodLogs", id, (err, data) => {
+        conn.query("SELECT day, month, year, SUM(bcalories + lcalories + dcalories) AS 'Total Calories' FROM FT_FoodLogs WHERE id = ? GROUP BY day, month, year", id, (err, data) => {
         cb(err, data);
         })
     
     },
 
     average(id, cb){
-        conn.query("SELECT month, year, AVG(bcalories + lcalories + dcalories) AS 'Average Calories Per Month' FROM FT_FoodLogs GROUP BY month, year", id, (err, data) => {
+        conn.query("SELECT month, year, AVG(bcalories + lcalories + dcalories) AS 'Average Calories Per Month' FROM FT_FoodLogs WHERE id = ? GROUP BY month, year", id, (err, data) => {
         cb(err, data);
         })
     

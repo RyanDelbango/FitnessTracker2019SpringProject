@@ -8,7 +8,7 @@ const model = {
     
     },
     get(id, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where FT_Users.id = ?", id, (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE FT_Users.id = ?", id, (err, data) => {
             cb(err, data);  
         })
     
@@ -22,14 +22,14 @@ const model = {
     },
 
     searchState(input, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, city, state FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where state = ?", input.state, (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName, city, state FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE state = ?", input.state, (err, data) => {
         cb(err, data);
         })
     
     },
 
     searchCity(input, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id where city = ?", input.city, (err, data) => {
+        conn.query("SELECT FT_Users.id, firstName, lastName, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE city = ?", input.city, (err, data) => {
         cb(err, data);
         })
     
