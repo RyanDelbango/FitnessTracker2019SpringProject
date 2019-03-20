@@ -7,6 +7,7 @@ const model = {
         })
     
     },
+    
     get(id, cb){
         conn.query("SELECT idTo, firstName, lastName, message FROM FT_Messages join FT_Users on FT_Messages.idTo = FT_Users.id WHERE FT_Messages.id=?", id, (err, data) => {
             cb(err, data);  

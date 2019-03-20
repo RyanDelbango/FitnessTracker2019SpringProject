@@ -7,6 +7,7 @@ const model = {
         })
     
     },
+    
     get(id, cb){
         conn.query("SELECT log_id, FT_Users.id, firstName, lastName, day, month, year, weight, type, minutes, notes FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id WHERE FT_Users.id = ?", id, (err, data) => {
             cb(err, data); 

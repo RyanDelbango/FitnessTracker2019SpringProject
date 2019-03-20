@@ -8,6 +8,7 @@ const model = {
         })
     
     },
+    
     get(id, cb){
         conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE id=?", id, (err, data) => {
             cb(err, data);  
