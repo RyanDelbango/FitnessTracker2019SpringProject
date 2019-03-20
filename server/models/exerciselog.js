@@ -16,7 +16,7 @@ const model = {
     },
 
     getLog(log_id, cb){
-        conn.query("SELECT log_id, FT_Users.id, firstName, lastName, day, month, year, weight, type, minutes, notes FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id WHERE log_id = ?", log_id, (err, data) => {
+        conn.query("SELECT FT_ExerciseLogs.log_id, FT_Users.id, firstName, lastName, day, month, year, weight, type, minutes, notes, COUNT(comment) AS 'Number of Comments' FROM FT_Users JOIN FT_ExerciseLogs on FT_Users.id = FT_ExerciseLogs.id JOIN FT_ExerciseComments on FT_ExerciseLogs.log_id = FT_ExerciseComments.log_id WHERE FT_ExerciseLogs.log_id = ?", log_id, (err, data) => {
             cb(err, data); 
         })
     
