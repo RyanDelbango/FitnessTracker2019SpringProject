@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div class="jumbotron">
-      <h1>Welcome to my App</h1>
+    <div class="jumbotron" style="background-color: darkseagreen">
+      <h1 class="text-center" style="color: white">Keep track of your fitness!</h1>
     </div>
 
   </div>
