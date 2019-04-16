@@ -24,9 +24,9 @@ const model = {
     },
 
     async login(email, password){
-        console.log(email, password)
+        // console.log(email, password)
         const data = await conn.query("SELECT id, firstName, lastName, email, password FROM FT_Users WHERE email = ? ", email);
-        console.log(data[0])
+        // console.log(data[0])
         if(data.length == 0){
             throw Error('User Not Found');
         }
@@ -39,22 +39,16 @@ const model = {
     },
 
     
-    add(input, cb){
-        console.log(input)
+    async add(input){
+        // console.log(input)
         if(input.password.length < 8){
-            cb(Error('A Longer Password is Required'))
-            return;
+            throw Error('A Longer Password is Required')
         }
-        conn.query( "INSERT INTO FT_Users (firstName, lastName, email, password) VALUES (?)",
-                    [[input.firstName, input.lastName, input.email, bcrypt.hashSync(input.password, 9)]],
-                    (err, data) => {
-                        if (err) {
-                            cb(err);
-                            return;
-                        }
-                         cb(err,data);
-                     }
-        )
+        const hashedPassword = await bcrypt.hash(input.password, 9)
+        const data = await conn.query( "INSERT INTO FT_Users (firstName, lastName, email, password) VALUES (?)",
+                    [[input.firstName, input.lastName, input.email, hashedPassword]]);
+                    console.log(data)
+                    return data;
     }
 };
 

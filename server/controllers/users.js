@@ -41,18 +41,10 @@ app.post("/login", (req, res, next) => {
 });
 
 //Register to app
-app.post("/register", (req, res) => {
-
-    user.add(req.body, (err, data) => {
-        if(req.body.password.length < 8) {res.status(400).send({
-            error: 'Your password was not long enough.' });
-            return;}
-        else if(err) {res.status(400).send({
-            error: 'This email account is already in use.' });
-            return;}
-        res.send(data);
-    });
-
+app.post("/register", (req, res, next) => {
+    user.add(req.body)
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 
