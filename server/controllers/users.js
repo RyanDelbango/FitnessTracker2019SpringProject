@@ -18,13 +18,10 @@ app.get("/:id", (req, res, next) => {
 });
 
 // Search Users by last name
-app.post("/search", (req, res) => {
-
-    user.search(req.body, (err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.post("/search", (req, res, next) => {
+    user.search(req.body)
+    .then(x=> res.send(x) )
+    .catch(next)
 });
 
 // Login to app

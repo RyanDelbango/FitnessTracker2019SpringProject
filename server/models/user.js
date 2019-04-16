@@ -10,11 +10,8 @@ const model = {
         return await conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE id=?", id);  
     },
 
-    search(input, cb){
-        conn.query("SELECT firstName, lastName FROM FT_Users WHERE lastName = ? ", input.lastName, (err, data) => {
-        cb(err, data);
-        })
-    
+    async search(input){
+        return await conn.query("SELECT firstName, lastName FROM FT_Users WHERE lastName = ? ", input.lastName);
     },
 
     async login(email, password){
