@@ -34,23 +34,15 @@ app.post("/search", (req, res) => {
 });
 
 // Login to app
-app.post("/login", (req, res) => {
-
-    user.login(req.body, (err, data) => {
-        if(err) throw err;
-        if (data==undefined){
-            return res.status(403).send({
-                error: 'The login information was incorrect'
-              })
-        }
-        else{res.send(data)};
-    });
-
+app.post("/login", (req, res, next) => {
+    user.login(req.body.email, req.body.password)
+    .then(x=> res.send(x) )
+    .catch(next)
 });
 
 //Register to app
 app.post("/register", (req, res) => {
-    console.log(req.body)
+
     user.add(req.body, (err, data) => {
         if(req.body.password.length < 8) {res.status(400).send({
             error: 'Your password was not long enough.' });

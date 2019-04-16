@@ -25,5 +25,10 @@ app.use('/friends', friends);
 app.use('/messages', messages);
 app.use('/comments', comments);
 
+app.use(function (err, req, res, next) {
+    console.error(err.stack)
+    res.status(500).send({msg: err.message });
+  })
+
 
 app.listen(port, () => console.log(`Exercise app http://localhost:${port}`));

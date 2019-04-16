@@ -23,18 +23,24 @@ const model = {
     
     },
 
-    login(input, cb){
-        conn.query("SELECT id, firstName, lastName, email, password FROM FT_Users WHERE (email) = (?) ", [[input.email]], (err, data) => {
-            if (!bcrypt.compareSync(input.password, data[0].password)){
-                 cb(err)
-            }
-            else{
-                cb(err, data)}      
-            })
+    async login(email, password){
+        console.log(email, password)
+        const data = await conn.query("SELECT id, firstName, lastName, email, password FROM FT_Users WHERE email = ? ", email);
+        console.log(data[0])
+        if(data.length == 0){
+            throw Error('User Not Found');
+        }
+        const x = await bcrypt.compare(password, data[0].password);
+        if(x){
+            return data[0];
+        }else{
+            throw Error('Wrong Password');
+        }
     },
 
     
     add(input, cb){
+        console.log(input)
         if(input.password.length < 8){
             cb(Error('A Longer Password is Required'))
             return;
