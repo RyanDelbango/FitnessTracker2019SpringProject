@@ -4,13 +4,10 @@ const user = require('../models/user')
 const app = express.Router();
 
 // Get all user information
-app.get("/", (req, res) => {
-
-    user.getAll((err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.get("/", async (req, res, next) => {
+    user.getAll()
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 // Get user information of a particular User
