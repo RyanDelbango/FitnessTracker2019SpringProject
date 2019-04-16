@@ -11,13 +11,10 @@ app.get("/", async (req, res, next) => {
 });
 
 // Get user information of a particular User
-app.get("/:userid", (req, res) => {
-
-    user.get(req.params.userid, (err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.get("/:id", (req, res, next) => {
+    user.get(req.params.id)
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 // Search Users by last name

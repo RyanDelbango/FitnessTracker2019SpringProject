@@ -2,15 +2,12 @@ const conn = require('./mysql_connection');
 const bcrypt = require('bcrypt');
 
 const model = {
-    async getAll(cb){
+    async getAll(){
         return await conn.query("SELECT id, firstName, lastName FROM FT_Users");
         },
     
-    get(id, cb){
-        conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE id=?", id, (err, data) => {
-            cb(err, data);  
-        })
-    
+    async get(id){
+        return await conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE id=?", id);  
     },
 
     search(input, cb){
