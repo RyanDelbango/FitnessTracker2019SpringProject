@@ -14,15 +14,13 @@ const conn = require('./mysql_connection');
     },
 
     async search(input){
-        const data = conn.query("SELECT id, idTo, message FROM FT_Messages WHERE message LIKE '%' ? '%' ", input.message);
-        return data;
+        return await conn.query("SELECT id, idTo, message FROM FT_Messages WHERE message LIKE '%' ? '%' ", input.message);
     },
 
     
-    async create(userid, idTo, input, cb){
-        const data = conn.query( "INSERT INTO FT_Messages (id, idTo, message) VALUES (?)",
+    async create(userid, idTo, input){
+        return await conn.query( "INSERT INTO FT_Messages (id, idTo, message) VALUES (?)",
                     [[userid, idTo, input.message]]);
-                    return data;   
     }
 };
 

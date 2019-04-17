@@ -10,10 +10,10 @@ const model = {
     },
 
     async edit(userid, input){
-        const data = await conn.query("Replace INTO FT_Profiles (id, bio, interests, quotes, heroes) VALUES (?)",
-                    [[userid, input.bio, input.interests, input.quotes, input.heroes]])
-                        return data;
-                     }
+        return await conn.query("Replace INTO FT_Profiles (id, bio, interests, quotes, heroes) VALUES (?)",
+                    [[userid, input.bio, input.interests, input.quotes, input.heroes]]);
+    }
+
 };
 
 module.exports = model;
