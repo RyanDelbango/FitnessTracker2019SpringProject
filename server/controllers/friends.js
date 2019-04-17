@@ -4,52 +4,31 @@ const user = require('../models/friend')
 const app = express.Router();
 
 // View All Friendships
-app.get("/", (req, res) => {
-
-    user.getAll((err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.get("/", async (req, res, next) => {
+    user.getAll()
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 // View Friends of a particular user
-app.get("/:userid", (req, res) => {
-
-    user.get(req.params.userid, (err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.get("/:userid", (req, res, next) => {
+    user.get(req.params.userid)
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 // Search by last name
-app.post("/searchlastName", (req, res) => {
-
-    user.searchlastName(req.body, (err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
-});
-
-// Browse friends by post request
-app.post("/browse", (req, res) => {
-
-    user.browse(req.body, (err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.post("/searchlastName/:userid", (req, res, next) => {
+    user.searchlastName(req.params.userid, req.body)
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 //Add Friends
-app.post("/add/:userid/:friendid", (req, res) => {
-    user.add(req.params.userid, req.params.friendid, (err, data) => {
-        if(err) throw (err);
-        res.send(data);
-    });
-
+app.post("/add/:userid/:friendid", (req, res, next) => {
+    user.add(req.params.userid, req.params.friendid)
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 
