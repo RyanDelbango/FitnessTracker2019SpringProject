@@ -1,53 +1,31 @@
 const conn = require('./mysql_connection');
 
 const model = {
-    getAll(cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id", (err, data) => {
-            cb(err, data);  
-        })
-    
+    async getAll(){
+        return await conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id");
     },
     
-    get(id, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE FT_Users.id = ?", id, (err, data) => {
-            cb(err, data);  
-        })
-    
+    async get(id){
+        return await conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE FT_Users.id = ?", id);
     },
 
-    friends(id, cb){
-        conn.query("SELECT FT_Friends.friend_id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE FT_Friends.id = ?", id, (err, data) => {
-            cb(err, data); 
-        })
-    
+    async friends(id){
+        return await conn.query("SELECT FT_Friends.friend_id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id JOIN FT_Friends on FT_Users.id = FT_Friends.friend_id WHERE FT_Friends.id = ?", id);
     },
 
-    searchState(input, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, city, state FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE state = ?", input.state, (err, data) => {
-        cb(err, data);
-        })
-    
+    async searchState(input){
+        return await conn.query("SELECT FT_Users.id, firstName, lastName, city, state FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE state = ?", input.state);
     },
 
-    searchCity(input, cb){
-        conn.query("SELECT FT_Users.id, firstName, lastName, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE city = ?", input.city, (err, data) => {
-        cb(err, data);
-        })
-    
+    async searchCity(input){
+        return await conn.query("SELECT FT_Users.id, firstName, lastName, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id WHERE city = ?", input.city);
     },
 
-    edit(userid, input, cb){
-        conn.query("Replace INTO FT_Contacts (id, phone, address, city, state, country) VALUES (?)",
-                    [[userid, input.phone, input.address, input.city, input.state, input.country]],
-                    (err, data) => {
-                        if (err) {
-                            cb(err);
-                            return;
-                        }
-                         cb(err,data);
-                     }
-        )
+    async edit(userid, input){
+        return await conn.query("Replace INTO FT_Contacts (id, phone, address, city, state, country) VALUES (?)",
+                    [[userid, input.phone, input.address, input.city, input.state, input.country]]);
     }
+
 };
 
 module.exports = model;
