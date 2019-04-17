@@ -4,32 +4,24 @@ const user = require('../models/profile')
 const app = express.Router();
 
 // Get all user profiles
-app.get("/", (req, res) => {
-
-    user.getAll((err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.get("/", async (req, res, next) => {
+    user.getAll()
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 // Get profile of a particular user
-app.get("/:userid", (req, res) => {
-
-    user.get(req.params.userid, (err, data) => {
-        if(err) throw err;
-        res.send(data);
-    });
-
+app.get("/:userid", (req, res, next) => {
+    user.get(req.params.userid)
+    .then(x=>  res.send(x) )
+    .catch(next)
 });
 
 // Edit profile of a particular user
-app.post("/edit/:userid", (req, res) => {
-    user.edit(req.params.userid, req.body, (err, data) => {
-        if(err) throw (err);
-        res.send(data);
-    });
-
+app.post("/edit/:userid", (req, res, next) => {
+    user.edit(req.params.userid, req.body)
+    .then(x=> res.send(x) )
+    .catch(next)
 });
 
 
