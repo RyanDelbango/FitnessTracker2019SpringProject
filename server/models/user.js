@@ -32,6 +32,9 @@ const model = {
     
     async add(input){
         // console.log(input)
+        if(!input.password || !input.email){
+            throw Error('Email and Password Required');
+        }
         if(input.password.length < 8){
             throw Error('A Longer Password is Required')
         }
