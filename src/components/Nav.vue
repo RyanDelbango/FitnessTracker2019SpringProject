@@ -15,15 +15,33 @@
                     <router-link class="nav-link" to="/About" active-class="active">About</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/MyFriends" active-class="active">My Friends</router-link>
+                    <router-link class="nav-link" to="/MyFriends" active-class="active">Friends</router-link>
                 </li>
             </ul>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto" v-if="!Globals.user">
+                <li class="nav-item ">
+                    <router-link to="/Login" class="nav-link" active-class="active" exact>Login</router-link>
+                </li>
+                <li class="nav-item ">
+                    <router-link to="/Register" class="nav-link">Register</router-link>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto list-unstyled" v-if="Globals.user"><li style="color: white">Welcome {{Globals.user.firstName}} {{Globals.user.lastName}}</li></ul>
+            </div>
         </div>
     </nav>
 </template>
 
 <script>
+import { Globals } from "@/models/api";
 export default {
+    data: ()=>({
+        Globals: Globals
+    }),
+    methods: {
+        
+    }
 }
 </script>
 
