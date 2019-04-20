@@ -8,14 +8,26 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <router-link class="nav-link" to="/" active-class="active" exact>Home <span class="sr-only">(current)</span></router-link>
-                </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/About" active-class="active">About</router-link>
                 </li>
+                <!-- <li class="nav-item">
+                    <router-link class="nav-link" to="/Contacts" active-class="active">Contacts</router-link>
+                </li> -->
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/Profile" active-class="active">Profile</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/Fitness" active-class="active">Fitness</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/Diet" active-class="active">Diet</router-link>
+                </li>                
                 <li class="nav-item">
                     <router-link class="nav-link" to="/MyFriends" active-class="active">Friends</router-link>
+                </li>
+                                <li class="nav-item">
+                    <router-link class="nav-link" to="/Messages" active-class="active">Messages</router-link>
                 </li>
             </ul>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
