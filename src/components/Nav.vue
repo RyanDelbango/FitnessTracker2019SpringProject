@@ -29,8 +29,11 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/MyFriends" active-class="active">Friends</router-link>
                 </li>
-                                <li class="nav-item">
+                <li class="nav-item">
                     <router-link class="nav-link" to="/Messages" active-class="active">Messages</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/Comments" active-class="active">Comments</router-link>
                 </li>
             </ul>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
