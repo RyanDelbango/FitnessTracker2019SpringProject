@@ -2,7 +2,7 @@
 <div class="container-fluid shadow rounded">
     <div class="row" style="background-color: darkseagreen;">
         <div class="col">
-            <h1 class="text-center" style="color: white; font-variant: small-caps;">{{Globals.user.firstName}}'s Friends</h1>  
+            <h1 class="text-center" style="color: white; font-variant: small-caps;">Friendships</h1>  
     <div class="w-100"><p></p></div>
     <div class="card mb-3 col-sm-6 mx-auto shadow" style="text-align: center; background-color: white; opacity: .9;" v-for="friend in friends" :key="friend.id">
         <router-link to="/About" class="nav-link">
@@ -10,7 +10,8 @@
             <li> 
 
                     <h4>
-                        {{friend.firstName}} {{friend.lastName}}
+                        User 1: "{{friend.id}}"
+                        User 2: "{{friend.friend_id}}"
                     </h4>
             </li>
         </ul>
@@ -23,8 +24,7 @@
 
 <script>
 import { Globals } from "@/models/api";
-import { GetFriends } from "@/models/users.js";
-GetFriends();
+import { GetFriends } from "@/models/Friends.js";
 export default {
     data: ()=> ({
         Globals: Globals,

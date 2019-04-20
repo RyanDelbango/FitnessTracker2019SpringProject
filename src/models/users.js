@@ -1,6 +1,6 @@
 import { api, Globals } from "./api";
 
-export async function GetFriends(){
+export async function GetUsers(){
     const  x  = await api("users")
     return x;
 }
