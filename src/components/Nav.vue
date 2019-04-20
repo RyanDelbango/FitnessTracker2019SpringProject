@@ -21,7 +21,7 @@
                     <router-link class="nav-link" to="/Fitness" active-class="active">Fitness</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/Diet" active-class="active">Diet</router-link>
+                    <router-link class="nav-link" to="/FoodLogs" active-class="active">Diet</router-link>
                 </li>                
                 <li class="nav-item">
                     <router-link class="nav-link" to="/MyFriends" active-class="active">Friends</router-link>

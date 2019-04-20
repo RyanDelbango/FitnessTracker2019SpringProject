@@ -5,6 +5,7 @@ import MyFriends from "./views/MyFriends.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
+import FoodLogs from "./views/FoodLogs.vue";
 
 Vue.use(Router)
 
@@ -37,6 +38,12 @@ export default new Router({
       name: 'Profile',
       component: Profile
     },
+    {
+      path: '/FoodLogs',
+      name: 'FoodLogs',
+      component: FoodLogs
+    },
+    
     {
       path: '/about',
       name: 'about',
