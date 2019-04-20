@@ -6,6 +6,7 @@ import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 import FoodLogs from "./views/FoodLogs.vue";
+import ExerciseLogs from "./views/ExerciseLogs.vue";
 
 Vue.use(Router)
 
@@ -43,7 +44,11 @@ export default new Router({
       name: 'FoodLogs',
       component: FoodLogs
     },
-    
+    {
+      path: '/ExerciseLogs',
+      name: 'ExerciseLogs',
+      component: ExerciseLogs
+    },
     {
       path: '/about',
       name: 'about',
