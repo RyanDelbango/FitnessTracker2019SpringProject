@@ -33,7 +33,7 @@
                     <router-link class="nav-link" to="/Messages" active-class="active">Messages</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/Comments" active-class="active">Comments</router-link>
+                    <router-link class="nav-link" to="/FoodComments" active-class="active">FComments</router-link>
                 </li>
             </ul>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
