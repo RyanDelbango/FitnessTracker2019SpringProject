@@ -5,11 +5,6 @@ export async function GetFriends(){
     return x;
 }
 
-export async function GetProfiles(){
-    const  x  = await api("profiles")
-    return x;
-}
-
 export async function Register(data){
     // console.log(data)
     const  x  = await api("users/register", data)

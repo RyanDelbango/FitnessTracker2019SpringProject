@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
+import Users from "./views/Users.vue";
 import Profile from "./views/Profile.vue";
 import Contacts from "./views/Contacts.vue";
 import FoodComments from "./views/FoodComments.vue";
@@ -47,6 +48,11 @@ export default new Router({
       path: '/Contacts',
       name: 'Contacts',
       component: Contacts
+    },
+    {
+      path: '/Users',
+      name: 'Users',
+      component: Users
     },
     {
       path: '/FoodComments',

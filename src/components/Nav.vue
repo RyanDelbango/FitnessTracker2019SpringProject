@@ -25,6 +25,9 @@
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/FoodLogs" active-class="active">Food</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/Users" active-class="active">Users</router-link>
                 </li>                
                 <li class="nav-item">
                     <router-link class="nav-link" to="/MyFriends" active-class="active">Friends</router-link>

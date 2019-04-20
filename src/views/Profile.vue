@@ -34,7 +34,7 @@
 
 <script>
 import { Globals } from "@/models/api";
-import { GetProfiles } from "@/models/users.js";
+import { GetProfiles } from "@/models/Profiles.js";
 
 export default {
     data: ()=> ({
