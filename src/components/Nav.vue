@@ -21,16 +21,19 @@
                     <router-link class="nav-link" to="/Profile" active-class="active">Profile</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/ExerciseLogs" active-class="active">Fitness</router-link>
+                    <router-link class="nav-link" to="/ExerciseLogs" active-class="active">Exercise</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/FoodLogs" active-class="active">Diet</router-link>
+                    <router-link class="nav-link" to="/FoodLogs" active-class="active">Food</router-link>
                 </li>                
                 <li class="nav-item">
                     <router-link class="nav-link" to="/MyFriends" active-class="active">Friends</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/Messages" active-class="active">Messages</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/ExerciseComments" active-class="active">EComments</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/FoodComments" active-class="active">FComments</router-link>

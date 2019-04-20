@@ -6,7 +6,8 @@ import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Profile from "./views/Profile.vue";
 import Contacts from "./views/Contacts.vue";
-import FoodComments from "./views/Comments.vue";
+import FoodComments from "./views/FoodComments.vue";
+import ExerciseComments from "./views/ExerciseComments.vue";
 import Messages from "./views/Messages.vue";
 import FoodLogs from "./views/FoodLogs.vue";
 import ExerciseLogs from "./views/ExerciseLogs.vue";
@@ -51,6 +52,11 @@ export default new Router({
       path: '/FoodComments',
       name: 'FoodComments',
       component: FoodComments
+    },
+    {
+      path: '/ExerciseComments',
+      name: 'ExerciseComments',
+      component: ExerciseComments
     },
     {
       path: '/FoodLogs',

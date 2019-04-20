@@ -10,6 +10,8 @@
             <li> 
 
                     <h4>
+                        Log ID: {{exerciselog.log_id}}
+                        <br>
                         {{exerciselog.firstName}}
                         {{exerciselog.lastName}}
                         <br>

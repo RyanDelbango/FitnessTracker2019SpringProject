@@ -10,6 +10,8 @@
             <li> 
 
                     <h4>
+                        Log ID: {{foodlog.log_id}}
+                        <br>
                         {{foodlog.firstName}}
                         {{foodlog.lastName}}
                         <br>
