@@ -11,6 +11,9 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/About" active-class="active">About</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/Contacts" active-class="active">Contacts</router-link>
+                </li>
                 <!-- <li class="nav-item">
                     <router-link class="nav-link" to="/Contacts" active-class="active">Contacts</router-link>
                 </li> -->
