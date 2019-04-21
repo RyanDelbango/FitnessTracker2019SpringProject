@@ -5,8 +5,8 @@ const conn = require('./mysql_connection');
         return await conn.query("SELECT id, idTo, message FROM FT_Messages");
     },
     
-    async get(id){
-        return await conn.query("SELECT idTo, firstName, lastName, message FROM FT_Messages join FT_Users on FT_Messages.idTo = FT_Users.id WHERE FT_Messages.id=?", id);
+    async get(idTo){
+        return await conn.query("SELECT FT_Users.id, firstName, lastName, message FROM FT_Messages join FT_Users on FT_Messages.id = FT_Users.id WHERE FT_Messages.idTo=?", idTo);
     },
 
     async friends(id){

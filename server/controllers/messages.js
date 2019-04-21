@@ -10,7 +10,7 @@ app.get("/", async (req, res, next) => {
     .catch(next)
 });
 
-// Get all messages a user sent
+// Get all messages a user has been sent
 app.get("/:userid", (req, res, next) => {
     user.get(req.params.userid)
     .then(x=>  res.send(x) )
