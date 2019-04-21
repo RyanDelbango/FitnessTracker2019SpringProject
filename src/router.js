@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // import { Globals } from "./models/api.js";
 import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
+import MyFriendsUser from "./views/MyFriendsUser.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Users from "./views/Users.vue";
@@ -33,6 +34,11 @@ export default new Router({
       path: '/MyFriends',
       name: 'my-friends',
       component: MyFriends
+    },
+    {
+      path: '/MyFriends/:userid',
+      name: 'my-friendsUser',
+      component: MyFriendsUser
     },
     {
       path: '/Register',

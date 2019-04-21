@@ -4,6 +4,7 @@ export const Globals = {
     user: null,
     profile: {id: ""},
     contact: {id: ""},
+    friend: {id: ""},
     errors: [],
     deleteError(i){
         this.errors.splice(i, 1);
