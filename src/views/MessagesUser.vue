@@ -16,6 +16,13 @@
                         <br>
                         <br>
                         Message: {{message.message}} 
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/Messages/${Globals.user.id}/${message.id}`" class="nav-link">
+                                Reply
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>

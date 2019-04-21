@@ -46,7 +46,7 @@
     <div class="col-lg-6">
       <div class="card border-success" v-if="newContact">
         <div class="card-body">
-          <h4 class="card-title">You've edited your profile!</h4>
+          <h4 class="card-title">You've edited your contact information!</h4>
         </div>
       </div>
     </div>

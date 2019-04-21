@@ -18,6 +18,7 @@ import FoodComments from "./views/FoodComments.vue";
 import ExerciseComments from "./views/ExerciseComments.vue";
 import Messages from "./views/Messages.vue";
 import MessagesUser from "./views/MessagesUser.vue";
+import MessagesSend from "./views/MessagesSend.vue";
 import FoodLogs from "./views/FoodLogs.vue";
 import ExerciseLogs from "./views/ExerciseLogs.vue";
 
@@ -121,6 +122,11 @@ export default new Router({
       path: '/Messages/:userid',
       name: 'MessagesUser',
       component: MessagesUser
+    },
+    {
+      path: '/Messages/:userid/:idTo',
+      name: 'MessagesSend',
+      component: MessagesSend
     },
     {
       path: '/about',

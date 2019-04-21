@@ -29,6 +29,13 @@
                                 Add Friend
                             </router-link>
                         </button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/Messages/${Globals.user.id}/${Globals.profile.id}`" class="nav-link">
+                                Send Message
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
