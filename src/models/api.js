@@ -2,6 +2,7 @@ const API_ROOT = process.env.API_ROOT || "http://localhost:3000/";
 
 export const Globals = {
     user: null,
+    profile: null,
     errors: [],
     deleteError(i){
         this.errors.splice(i, 1);

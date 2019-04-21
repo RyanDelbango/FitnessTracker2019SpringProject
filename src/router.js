@@ -9,6 +9,7 @@ import Users from "./views/Users.vue";
 import Profile from "./views/Profile.vue";
 import ProfileUser from "./views/ProfileUser.vue";
 import Contacts from "./views/Contacts.vue";
+import ContactsUser from "./views/ContactsUser.vue";
 import FoodComments from "./views/FoodComments.vue";
 import ExerciseComments from "./views/ExerciseComments.vue";
 import Messages from "./views/Messages.vue";
@@ -42,12 +43,12 @@ export default new Router({
       component: Login
     },
     {
-      path: '/Profile',
+      path: `/Profile`,
       name: 'Profile',
       component: Profile
     },
     {
-      path: '/Profile/:userid',
+      path: `/Profile/:userid`,
       name: 'ProfileUser',
       component: ProfileUser
     },
@@ -55,6 +56,11 @@ export default new Router({
       path: '/Contacts',
       name: 'Contacts',
       component: Contacts
+    },
+    {
+      path: '/Contacts/:userid',
+      name: 'ContactsUser',
+      component: ContactsUser
     },
     {
       path: '/Users',
