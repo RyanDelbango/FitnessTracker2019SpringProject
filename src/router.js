@@ -21,6 +21,7 @@ import MessagesUser from "./views/MessagesUser.vue";
 import MessagesSend from "./views/MessagesSend.vue";
 import FoodLogs from "./views/FoodLogs.vue";
 import FoodLogsUser from "./views/FoodLogsUser.vue";
+import FoodLogsCreate from "./views/FoodLogsCreate.vue";
 import ExerciseLogs from "./views/ExerciseLogs.vue";
 import ExerciseLogsUser from "./views/ExerciseLogsUser.vue";
 import ExerciseLogsCreate from "./views/ExerciseLogsCreate.vue";
@@ -115,6 +116,11 @@ export default new Router({
       path: '/FoodLogs/:userid',
       name: 'FoodLogsUser',
       component: FoodLogsUser
+    },
+    {
+      path: '/FoodLogs/create/:userid',
+      name: 'FoodLogsCreate',
+      component: FoodLogsCreate
     },
     {
       path: '/ExerciseLogs',

@@ -10,3 +10,8 @@ export async function GetFoodLogsUser(){
     // console.log(x)
     return x;
 }
+
+export async function CreateFoodLog(data){
+    const x = await api(`FoodLogs/create/${Globals.user.id}`, data)
+    return x;
+}

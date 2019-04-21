@@ -3,7 +3,7 @@
     <div class="col-lg-6">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Create Exercise Log</h4>
+        <h4 class="card-title">Create a Exercise Log</h4>
         <div class="card-text">
             <form @submit.prevent="submit">
                 <div class="form-group">
@@ -33,7 +33,7 @@
                     class="form-control" name="minutes" id="minutes" placeholder="20">
                 </div>
                 <div class="form-group">
-                  <label for="tyoe">Type</label>
+                  <label for="type">Type</label>
                   <input type="text" v-model="data.type"
                     class="form-control" name="type" id="type" placeholder="Hiking">
                 </div>
