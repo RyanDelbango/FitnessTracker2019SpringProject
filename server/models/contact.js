@@ -22,8 +22,8 @@ const model = {
     },
 
     async edit(userid, input){
-        return await conn.query("Replace INTO FT_Contacts (id, phone, address, city, state, country) VALUES (?)",
-                    [[userid, input.phone, input.address, input.city, input.state, input.country]]);
+        return await conn.query("Replace INTO FT_Contacts (id, phone, address, city, state, country, zip) VALUES (?)",
+                    [[userid, input.phone, input.address, input.city, input.state, input.country, input.zip]]);
     }
 
 };

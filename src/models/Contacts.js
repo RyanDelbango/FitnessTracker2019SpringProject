@@ -9,3 +9,8 @@ export async function GetContactUser(){
     const  x  = await api(`contacts/${Globals.contact.id}`)
     return x;
 }
+
+export async function EditContact(data){
+    const x = await api(`contacts/edit/${Globals.user.id}`, data)
+    return x;
+}
