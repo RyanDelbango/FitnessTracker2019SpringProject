@@ -34,7 +34,7 @@
 
 <script>
 import { Globals } from "@/models/api";
-import { GetProfileOtherUser } from "@/models/Profiles.js";
+import { GetProfileUser } from "@/models/Profiles.js";
 
 export default {
     data: ()=> ({
@@ -43,7 +43,7 @@ export default {
     }),
     async mounted(){
         Globals.profile.id = this.$route.params.userid
-        this.profiles = await GetProfileOtherUser()
+        this.profiles = await GetProfileUser()
     }
 }
 </script>

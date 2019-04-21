@@ -6,12 +6,12 @@ export async function GetProfiles(){
 }
 
 export async function GetProfileUser(){
-    const  x  = await api(`profiles/${Globals.user.id}`)
+    const  x  = await api(`profiles/${Globals.profile.id}`)
+    // console.log(x)
     return x;
 }
 
-export async function GetProfileOtherUser(){
-    const  x  = await api(`profiles/${Globals.profile.id}`)
-    // console.log(x)
+export async function EditProfile(data){
+    const x = await api(`profiles/edit/${Globals.user.id}`, data)
     return x;
 }

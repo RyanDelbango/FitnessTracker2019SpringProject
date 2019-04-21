@@ -8,6 +8,7 @@ import Login from "./views/Login.vue";
 import Users from "./views/Users.vue";
 import Profile from "./views/Profile.vue";
 import ProfileUser from "./views/ProfileUser.vue";
+import ProfileEdit from "./views/ProfileEdit.vue";
 import Contacts from "./views/Contacts.vue";
 import ContactsUser from "./views/ContactsUser.vue";
 import FoodComments from "./views/FoodComments.vue";
@@ -51,6 +52,11 @@ export default new Router({
       path: `/Profile/:userid`,
       name: 'ProfileUser',
       component: ProfileUser
+    },
+    {
+      path: `/Profile/Edit/:userid`,
+      name: 'ProfileEdit',
+      component: ProfileEdit
     },
     {
       path: '/Contacts',
