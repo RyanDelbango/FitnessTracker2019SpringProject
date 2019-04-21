@@ -46,6 +46,13 @@
                         Dinner: {{foodlog.dinner}}
                         <br>
                         Snacks: {{foodlog.snacks}}
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/comments/food/${foodlog.log_id}`" class="nav-link">
+                                View Comments
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
