@@ -47,7 +47,7 @@ export default {
     }),
     async mounted(){
         Globals.profile.id = this.$route.params.userid
-        console.log(Globals.profile.id)
+        // console.log(Globals.profile.id)
         this.exerciselogs = await GetExerciseLogsUser()
     }
 }

@@ -7,6 +7,11 @@ export async function GetExerciseLogs(){
 
 export async function GetExerciseLogsUser(){
     const  x  = await api(`ExerciseLogs/${Globals.profile.id}`)
-     console.log(x)
+    // console.log(x)
+    return x;
+}
+
+export async function CreateExerciseLog(data){
+    const x = await api(`ExerciseLogs/create/${Globals.user.id}`, data)
     return x;
 }
