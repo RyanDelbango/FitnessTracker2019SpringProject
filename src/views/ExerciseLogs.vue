@@ -45,6 +45,13 @@
                                 View Comments
                             </router-link>
                         </button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/comments/exercise/${Globals.user.id}/${exerciselog.log_id}`" class="nav-link">
+                                Add Comment
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
