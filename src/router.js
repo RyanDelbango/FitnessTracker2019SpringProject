@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import { Globals } from "./models/api.js";
 import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Users from "./views/Users.vue";
 import Profile from "./views/Profile.vue";
+import ProfileUser from "./views/ProfileUser.vue";
 import Contacts from "./views/Contacts.vue";
 import FoodComments from "./views/FoodComments.vue";
 import ExerciseComments from "./views/ExerciseComments.vue";
@@ -43,6 +45,11 @@ export default new Router({
       path: '/Profile',
       name: 'Profile',
       component: Profile
+    },
+    {
+      path: '/Profile/:userid',
+      name: 'ProfileUser',
+      component: ProfileUser
     },
     {
       path: '/Contacts',

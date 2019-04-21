@@ -18,7 +18,7 @@
                     <router-link class="nav-link" to="/Contacts" active-class="active">Contacts</router-link>
                 </li> -->
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/Profile" active-class="active">Profile</router-link>
+                    <router-link class="nav-link" to="/Profile/user" active-class="active">Profile</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/ExerciseLogs" active-class="active">Exercise</router-link>

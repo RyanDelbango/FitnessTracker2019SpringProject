@@ -36,7 +36,7 @@
 
 <script>
 import { Globals } from "@/models/api";
-import { GetProfiles } from "@/models/Profiles.js";
+import { GetProfileUser } from "@/models/Profiles.js";
 
 export default {
     data: ()=> ({
@@ -44,7 +44,7 @@ export default {
         profiles: []
     }),
     async mounted(){
-        this.profiles = await GetProfiles()
+        this.profiles = await GetProfileUser()
     }
 }
 </script>

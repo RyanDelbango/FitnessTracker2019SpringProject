@@ -10,6 +10,8 @@
             <li> 
 
                     <h4>
+                        {{user.id}}
+                        <br>
                         {{user.firstName}} {{user.lastName}}
                     </h4>
             </li>
