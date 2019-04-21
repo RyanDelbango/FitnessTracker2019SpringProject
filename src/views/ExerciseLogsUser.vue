@@ -28,8 +28,15 @@
                         Notes: {{exerciselog.notes}}
                     </h4>
                         <button class="btn btn-outline-success">
-                            <router-link :to="`/ExerciseComments/${exerciselog.log_id}`" class="nav-link">
+                            <router-link :to="`/comments/exercise/${exerciselog.log_id}`" class="nav-link">
                                 View Comments
+                            </router-link>
+                        </button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/comments/exercise/${Globals.user.id}/${exerciselog.log_id}`" class="nav-link">
+                                Add Comment
                             </router-link>
                         </button>
             </li>

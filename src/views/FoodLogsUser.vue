@@ -34,6 +34,20 @@
                         Dinner: {{foodlog.dinner}}
                         <br>
                         Snacks: {{foodlog.snacks}}
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/comments/food/${foodlog.log_id}`" class="nav-link">
+                                View Comments
+                            </router-link>
+                        </button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/comments/food/${Globals.user.id}/${foodlog.log_id}`" class="nav-link">
+                                Add Comment
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>

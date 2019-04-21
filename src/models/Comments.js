@@ -10,6 +10,11 @@ export async function GetFoodCommentsLog(){
     return x;
 }
 
+export async function CreateFoodComment(data){
+    const x = await api(`comments/food/${Globals.user.id}/${Globals.log.id}`, data)
+    return x;
+}
+
 export async function GetExerciseComments(){
     const  x  = await api("comments/exercise")
     return x
