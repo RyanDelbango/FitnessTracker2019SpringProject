@@ -36,6 +36,20 @@
                                 Send Message
                             </router-link>
                         </button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/ExerciseLogs/${Globals.profile.id}`" class="nav-link">
+                                View Exercise Logs
+                            </router-link>
+                        </button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/FoodLogs/${Globals.profile.id}`" class="nav-link">
+                                View Food Logs
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
