@@ -2,7 +2,7 @@
 <div class="container-fluid shadow rounded">
     <div class="row" style="background-color: darkseagreen;">
         <div class="col">
-            <h1 class="text-center" style="color: white; font-variant: small-caps;">Contacts</h1>  
+            <h1 class="text-center" style="color: white; font-variant: small-caps;">Contact Information</h1>  
     <div class="w-100"><p></p></div>
     <div class="card mb-3 col-sm-6 mx-auto shadow" style="text-align: center; background-color: white; opacity: .9;" v-for="contact in contacts" :key="contact.id">
         <router-link to="/About" class="nav-link">
@@ -38,7 +38,7 @@
 
 <script>
 import { Globals } from "@/models/api";
-import { GetContacts } from "@/models/Contacts.js";
+import { GetContactUser } from "@/models/Contacts.js";
 
 export default {
     data: ()=> ({
@@ -46,7 +46,8 @@ export default {
         contacts: []
     }),
     async mounted(){
-        this.contacts = await GetContacts()
+        Globals.contact.id = this.$route.params.userid
+        this.contacts = await GetContactUser()
     }
 }
 </script>
