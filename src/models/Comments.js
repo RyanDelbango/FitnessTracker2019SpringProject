@@ -1,4 +1,4 @@
-import { api } from "./api";
+import { api, Globals } from "./api";
 
 export async function GetFoodComments(){
     const  x  = await api("comments/food")
@@ -8,4 +8,9 @@ export async function GetFoodComments(){
 export async function GetExerciseComments(){
     const  x  = await api("comments/exercise")
     return x
+}
+
+export async function GetExerciseCommentsLog(){
+    const  x  = await api(`comments/exercise/${Globals.log.id}`)
+    return x;
 }

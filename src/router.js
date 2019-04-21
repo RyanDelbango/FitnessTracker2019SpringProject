@@ -16,6 +16,7 @@ import ContactsUser from "./views/ContactsUser.vue";
 import ContactsEdit from "./views/ContactsEdit.vue";
 import FoodComments from "./views/FoodComments.vue";
 import ExerciseComments from "./views/ExerciseComments.vue";
+import ExerciseCommentsLog from "./views/ExerciseCommentsLog.vue";
 import Messages from "./views/Messages.vue";
 import MessagesUser from "./views/MessagesUser.vue";
 import MessagesSend from "./views/MessagesSend.vue";
@@ -106,6 +107,11 @@ export default new Router({
       path: '/ExerciseComments',
       name: 'ExerciseComments',
       component: ExerciseComments
+    },
+    {
+      path: '/comments/exercise/:logid',
+      name: 'ExerciseCommentsLog',
+      component: ExerciseCommentsLog
     },
     {
       path: '/FoodLogs',

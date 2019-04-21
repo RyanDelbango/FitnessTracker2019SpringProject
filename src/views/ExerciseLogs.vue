@@ -38,6 +38,13 @@
                         Minutes Exercised: {{exerciselog.minutes}}
                         <br>
                         Notes: {{exerciselog.notes}}
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/comments/exercise/${exerciselog.log_id}`" class="nav-link">
+                                View Comments
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
@@ -59,6 +66,7 @@ export default {
     }),
     async mounted(){
         this.exerciselogs = await GetExerciseLogs()
+        Globals.log.id = this.exerciselogs
     }
 }
 </script>

@@ -27,6 +27,11 @@
                         <br>
                         Notes: {{exerciselog.notes}}
                     </h4>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/ExerciseComments/${exerciselog.log_id}`" class="nav-link">
+                                View Comments
+                            </router-link>
+                        </button>
             </li>
         </ul>
         </router-link>
@@ -49,6 +54,8 @@ export default {
         Globals.profile.id = this.$route.params.userid
         // console.log(Globals.profile.id)
         this.exerciselogs = await GetExerciseLogsUser()
+        // console.log(this.exerciselogs)
+        Globals.log.id = this.exerciselogs
     }
 }
 </script>
