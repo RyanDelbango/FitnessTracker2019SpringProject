@@ -34,7 +34,7 @@
                         Heroes: {{profile.heroes}}
                         <br>
                         <br>
-                        <button class="btn btn-outline-success" @click="par">
+                        <button class="btn btn-outline-success">
                             <router-link :to="`Profile/${profile.id}`" class="nav-link">
                                 Go to Profile
                             </router-link>
@@ -62,11 +62,6 @@ export default {
         const x = await GetProfiles()
         this.profiles = x
     },
-    methods: {
-        par: function(){
-            Globals.profile = this.profiles[3]
-        }
-    }
 }
 </script>
 
