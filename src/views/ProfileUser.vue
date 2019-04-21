@@ -22,6 +22,13 @@
                         Favorite Quotes: "{{profile.quotes}}"
                         <br>
                         Heroes: {{profile.heroes}}
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/MyFriends/${Globals.user.id}/${Globals.friend.id}`" class="nav-link">
+                                Add Friend
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
@@ -43,6 +50,7 @@ export default {
     }),
     async mounted(){
         Globals.profile.id = this.$route.params.userid
+        Globals.friend.id = this.$route.params.userid
         this.profiles = await GetProfileUser()
     }
 }

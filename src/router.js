@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
 import MyFriendsUser from "./views/MyFriendsUser.vue";
+import MyFriendsAdd from "./views/MyFriendsAdd.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Users from "./views/Users.vue";
@@ -39,6 +40,11 @@ export default new Router({
       path: '/MyFriends/:userid',
       name: 'my-friendsUser',
       component: MyFriendsUser
+    },
+    {
+      path: '/MyFriends/:userid/:friendid',
+      name: 'my-friendsAdd',
+      component: MyFriendsAdd
     },
     {
       path: '/Register',
