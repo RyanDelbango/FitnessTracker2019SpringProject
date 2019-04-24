@@ -19,11 +19,10 @@
             <li> 
 
                     <h4>
-                        Log ID: {{foodlog.log_id}}
-                        <br>
-                        {{foodlog.firstName}}
-                        {{foodlog.lastName}}
-                        <br>
+                        <router-link :to="`/Profile/${foodlog.id}`" class="nav-link">
+                            {{foodlog.firstName}}
+                            {{foodlog.lastName}}
+                        </router-link>
                         Day: {{foodlog.day}}
                         <br>
                         Month: {{foodlog.month}}

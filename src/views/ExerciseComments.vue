@@ -10,10 +10,10 @@
 
                     <h4>
                         Log ID: {{comment.log_id}}
-                        <br>
-                        {{comment.firstName}}
-                        {{comment.lastName}}
-                        <br>
+                        <router-link :to="`/Profile/${comment.id}`" class="nav-link">
+                            {{comment.firstName}}
+                            {{comment.lastName}}
+                        </router-link>
                         Comment: "{{comment.comment}}"
                     </h4>
             </li>
@@ -35,6 +35,7 @@ export default {
     }),
     async mounted(){
         this.comments = await GetExerciseComments()
+        // console.log(this.comments)
     }
 }
 </script>

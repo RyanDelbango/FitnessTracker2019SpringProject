@@ -11,6 +11,13 @@
                     <h4>
                         {{friend.firstName}}
                         {{friend.lastName}}
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/Profile/${friend.id}`" class="nav-link">
+                                Go to Profile
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
@@ -32,6 +39,7 @@ export default {
     async mounted(){
         Globals.friend.id = this.$route.params.userid
         this.friends = await GetFriendsUser()
+        // console.log(this.friends)
     }
 }
 </script>

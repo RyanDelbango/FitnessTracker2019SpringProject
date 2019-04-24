@@ -19,11 +19,10 @@
             <li> 
 
                     <h4>
-                        Log ID: {{exerciselog.log_id}}
-                        <br>
-                        {{exerciselog.firstName}}
-                        {{exerciselog.lastName}}
-                        <br>
+                        <router-link :to="`/Profile/${exerciselog.id}`" class="nav-link">
+                            {{exerciselog.firstName}}
+                            {{exerciselog.lastName}}
+                        </router-link>
                         Day: {{exerciselog.day}}
                         <br>
                         Month: {{exerciselog.month}}
@@ -71,6 +70,7 @@ export default {
     }),
     async mounted(){
         this.exerciselogs = await GetExerciseLogs()
+        // console.log(this.exerciselogs)
         Globals.log.id = this.exerciselogs
     }
 }

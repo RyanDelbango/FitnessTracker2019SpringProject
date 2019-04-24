@@ -19,8 +19,8 @@
             <li> 
 
                     <h4>
-                        {{contact.firstName}}
-                        {{contact.lastName}}
+                            {{contact.firstName}}
+                            {{contact.lastName}}
                         <br>
                         Email: {{contact.email}} 
                         <br>
@@ -38,8 +38,8 @@
                         <br>
                         <br>
                         <button class="btn btn-outline-success">
-                            <router-link :to="`Contacts/${contact.id}`" class="nav-link">
-                                Go to Contact Information
+                            <router-link :to="`Profile/${contact.id}`" class="nav-link">
+                                Go to Profile
                             </router-link>
                         </button>
                     </h4>

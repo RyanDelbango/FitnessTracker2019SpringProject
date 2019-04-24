@@ -10,10 +10,10 @@
 
                     <h4>
                         From:
-                        {{message.firstName}}
-                        {{message.lastName}}
-                        <br>
-                        <br>
+                        <router-link :to="`/Profile/${message.id}`" class="nav-link">
+                            {{message.firstName}}
+                            {{message.lastName}}
+                        </router-link>
                         Message: {{message.message}} 
                         <br>
                         <br>

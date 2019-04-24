@@ -8,10 +8,11 @@
         <ul class="list-unstyled" style="padding-top: 5px;">
             <li> 
 
-                    <h4>
-                        {{foodlog.firstName}}
-                        {{foodlog.lastName}}
-                        <br>
+                    <h4>                            
+                        <router-link :to="`/Profile/${Globals.profile.id}`" class="nav-link">
+                            {{foodlog.firstName}}
+                            {{foodlog.lastName}}
+                        </router-link>
                         Day: {{foodlog.day}}
                         <br>
                         Month: {{foodlog.month}}

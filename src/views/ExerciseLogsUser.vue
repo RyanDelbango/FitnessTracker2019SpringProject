@@ -9,9 +9,10 @@
             <li> 
 
                     <h4>
-                        {{exerciselog.firstName}}
-                        {{exerciselog.lastName}}
-                        <br>
+                        <router-link :to="`/Profile/${Globals.profile.id}`" class="nav-link">
+                            {{exerciselog.firstName}}
+                            {{exerciselog.lastName}}
+                        </router-link>
                         Day: {{exerciselog.day}}
                         <br>
                         Month: {{exerciselog.month}}

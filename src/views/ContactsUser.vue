@@ -9,9 +9,10 @@
             <li> 
 
                     <h4>
-                        {{contact.firstName}}
-                        {{contact.lastName}}
-                        <br>
+                        <router-link :to="`/Profile/${contact.id}`" class="nav-link">
+                            {{contact.firstName}}
+                            {{contact.lastName}}
+                        </router-link>
                         Email: {{contact.email}} 
                         <br>
                         Phone Number: {{contact.phone}}

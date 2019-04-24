@@ -8,12 +8,11 @@
         <ul class="list-unstyled" style="padding-top: 5px;">
             <li> 
 
-                    <h4>
+                    <h1>
                         {{profile.firstName}}
                         {{profile.lastName}}
-                        <br>
-                        Email: {{profile.email}} 
-                        <br>
+                    </h1>
+                    <h4>
                         Bio: {{profile.bio}}
                         <br>
                         Interests: {{profile.interests}}
@@ -33,6 +32,13 @@
                         <button class="btn btn-outline-success">
                             <router-link :to="`/Messages/${Globals.user.id}/${Globals.profile.id}`" class="nav-link">
                                 Send Message
+                            </router-link>
+                        </button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/Contacts/${Globals.profile.id}`" class="nav-link">
+                                Contact Information
                             </router-link>
                         </button>
                         <br>

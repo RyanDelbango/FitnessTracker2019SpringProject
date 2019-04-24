@@ -19,11 +19,8 @@
         <ul class="list-unstyled" style="padding-top: 5px;">
             <li> 
                     <h4>
-                        <br>
                         {{profile.firstName}}
                         {{profile.lastName}}
-                        <br>
-                        Email: {{profile.email}} 
                         <br>
                         Bio: {{profile.bio}}
                         <br>
