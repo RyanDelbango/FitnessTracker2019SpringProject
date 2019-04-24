@@ -6,7 +6,7 @@ const model = {
     },
 
     async get(id){
-        return await conn.query("SELECT firstName, lastName, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks FROM FT_Users JOIN FT_FoodLogs on FT_Users.id = FT_FoodLogs.id WHERE FT_Users.id = ? ORDER BY log_id DESC", id);
+        return await conn.query("SELECT log_id, firstName, lastName, day, month, year, bcalories, lcalories, dcalories, scalories, breakfast, lunch, dinner, snacks FROM FT_Users JOIN FT_FoodLogs on FT_Users.id = FT_FoodLogs.id WHERE FT_Users.id = ? ORDER BY log_id DESC", id);
     },
 
     async getLog(log_id){
