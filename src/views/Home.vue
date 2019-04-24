@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="jumbotron shadow" style="background-color: darkseagreen">
-      <h1 class="text-center" style="color: white">Keep track of your fitness!</h1>
+      <h1 class="text-center" style="color: white">Welcome to your Fitness Tracker!</h1>
     </div>
 
   </div>

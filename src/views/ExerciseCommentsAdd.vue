@@ -3,7 +3,7 @@
     <div class="col-lg-6">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Create a Comment</h4>
+        <h4 class="card-title">Create a Comment on Exercise Log {{this.$route.params.logid}}</h4>
         <div class="card-text">
             <form @submit.prevent="submit">
                 <div class="form-group">

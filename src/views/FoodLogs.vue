@@ -17,7 +17,6 @@
     <div class="card mb-3 col-sm-6 mx-auto shadow" style="text-align: center; background-color: white; opacity: .9;" v-for="foodlog in foodlogs" :key="foodlog.id">
         <ul class="list-unstyled" style="padding-top: 5px;">
             <li> 
-
                     <h4>
                         <router-link :to="`/Profile/${foodlog.id}`" class="nav-link">
                             {{foodlog.firstName}}
