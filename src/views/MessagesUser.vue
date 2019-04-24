@@ -5,7 +5,6 @@
             <h1 class="text-center" style="color: white; font-variant: small-caps;">My Messages</h1>  
     <div class="w-100"><p></p></div>
     <div class="card mb-3 col-sm-6 mx-auto shadow" style="text-align: center; background-color: white; opacity: .9;" v-for="message in messages" :key="message.id">
-        <router-link to="/About" class="nav-link">
         <ul class="list-unstyled" style="padding-top: 5px;">
             <li> 
 
@@ -26,7 +25,6 @@
                     </h4>
             </li>
         </ul>
-        </router-link>
     </div>
     </div>
     </div>
