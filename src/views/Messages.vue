@@ -9,16 +9,19 @@
                 </router-link>
             </div>
     <div class="w-100"><p></p></div>
-    <div class="card mb-3 col-sm-6 mx-auto shadow" style="text-align: center; background-color: white; opacity: .9;" v-for="message in messages" :key="message.id">
+    <div class="card mb-3 col-sm-6 mx-auto shadow" style="text-align: center; background-color: white; opacity: .9;" v-for="friend in friends" :key="friend.id">
         <ul class="list-unstyled" style="padding-top: 5px;">
             <li> 
-
                     <h4>
-                        Sender ID: {{message.id}}
+                        {{friend.firstName}}
+                        {{friend.lastName}}
                         <br>
-                        Recipient ID: {{message.idTo}}
                         <br>
-                        Message: "{{message.message}}"
+                        <button class="btn btn-outline-success">
+                            <router-link :to="`/Messages/${Globals.user.id}/${friend.id}`" class="nav-link">
+                                Send Message
+                            </router-link>
+                        </button>
                     </h4>
             </li>
         </ul>
@@ -31,14 +34,21 @@
 <script>
 import { Globals } from "@/models/api";
 import { GetMessages } from "@/models/Messages.js";
+import { GetFriendsUser } from "@/models/Friends.js";
+
 
 export default {
     data: ()=> ({
         Globals: Globals,
-        messages: []
+        messages: [],
+        friends: []
     }),
     async mounted(){
+        Globals.friend.id = Globals.user.id
         this.messages = await GetMessages()
+        this.friends = await GetFriendsUser()
+        // console.log(this.friends)
+
     }
 }
 </script>

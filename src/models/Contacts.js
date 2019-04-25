@@ -10,6 +10,11 @@ export async function GetContactUser(){
     return x;
 }
 
+export async function GetContactsFriends(){
+    const  x  = await api(`contacts/friends/${Globals.user.id}`)
+    return x;
+}
+
 export async function EditContact(data){
     const x = await api(`contacts/edit/${Globals.user.id}`, data)
     return x;

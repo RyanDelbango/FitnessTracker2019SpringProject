@@ -2,7 +2,7 @@ const conn = require('./mysql_connection');
 
 const model = {
     async getAll(){
-        return await conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id");
+        return await conn.query("SELECT FT_Users.id, firstName, lastName, email, phone, country, address, city, state, zip FROM FT_Users JOIN FT_Contacts on FT_Users.id = FT_Contacts.id ORDER BY FT_Users.id DESC");
     },
     
     async get(id){

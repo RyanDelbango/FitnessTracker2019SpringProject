@@ -2,7 +2,7 @@
 <div class="container-fluid shadow rounded">
     <div class="row" style="background-color: darkseagreen;">
         <div class="col">
-            <h1 class="text-center" style="color: white; font-variant: small-caps;">Profiles</h1>  
+            <h1 class="text-center" style="color: white; font-variant: small-caps;">User Profiles</h1>  
             <div class="card mb-3 col-sm-6 mx-auto shadow" style="text-align: center; background-color: white; opacity: .9;">
                 <router-link :to="`Profile/${Globals.user.id}`" class="nav-link">
                     View My Profile
