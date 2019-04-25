@@ -62,9 +62,10 @@ export default {
         async submit(){
             try {
               const m = await Login(this.data);
-              // console.log(m)
-              this.newUser = m;
-              Globals.user = m;
+              console.log(m)
+              this.newUser = m.user;
+              Globals.user = m.user;
+              Globals.token = m.token;
             } catch (error) {
               Globals.errors.push(error);
             }

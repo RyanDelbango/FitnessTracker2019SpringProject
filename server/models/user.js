@@ -1,5 +1,8 @@
 const conn = require('./mysql_connection');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'some long string..';
 
 const model = {
     async getAll(){
@@ -13,7 +16,9 @@ const model = {
     async search(input){
         return await conn.query("SELECT id, firstName, lastName FROM FT_Users WHERE lastName = ? ", input.lastName);
     },
-
+    getFromToken(token){
+        return jwt.verify(token, JWT_SECRET);
+    },
     async login(email, password){
         // console.log(email, password)
         const data = await conn.query("SELECT id, firstName, lastName, email, password FROM FT_Users WHERE email = ? ", email);
@@ -23,7 +28,9 @@ const model = {
         }
         const x = await bcrypt.compare(password, data[0].password);
         if(x){
-            return data[0];
+            const user = { ...data[0], password: null };
+            // console.log(user)
+            return { user, token: jwt.sign(user, JWT_SECRET) };
         }else{
             throw Error('Wrong Password');
         }
