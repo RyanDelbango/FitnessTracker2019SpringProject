@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import { Globals } from "./models/api.js";
+import { Globals } from "./models/api.js";
 import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
 import MyFriendsUser from "./views/MyFriendsUser.vue";
@@ -32,7 +32,7 @@ import ExerciseLogsCreate from "./views/ExerciseLogsCreate.vue";
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -186,3 +186,14 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const publicRoutes = ['home', 'Login', 'Register'];
+  if(!publicRoutes.includes(to.name) && !Globals.user){
+    Globals.redirectRoute = { name: to.name, path: to.path, params: to.params, query: to.query, hash: to.hash }
+    return next('login');
+  }
+  next();
+})
+
+export default router;

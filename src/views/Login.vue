@@ -63,6 +63,7 @@ export default {
             try {
               const m = await Login(this.data);
               // console.log(m)
+              this.$router.push(Globals.redirectRoute)
               this.newUser = m.user;
             } catch (error) {
               Globals.errors.push(error);
