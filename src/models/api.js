@@ -6,6 +6,7 @@ export const Globals = {
     contact: {id: ""},
     friend: {id: ""},
     log: {id: ""},
+    redirectRoute: null,
     errors: [],
     deleteError(i){
         this.errors.splice(i, 1);
