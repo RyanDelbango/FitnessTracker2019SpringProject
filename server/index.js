@@ -18,6 +18,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
+app.use(express.static(path.join(__dirname, "../dist")));
 app.use(function(req, res, next) {
   try {
     const token = (req.headers.authorization || "").split(' ')[1]

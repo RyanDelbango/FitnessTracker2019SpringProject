@@ -18,7 +18,7 @@ const model = {
     },
 
     async total(id){
-        return await conn.query("SELECT day, month, year, SUM(bcalories + lcalories + dcalories) AS 'Total' FROM FT_FoodLogs WHERE id = ? GROUP BY day, month, year", id);
+        return await conn.query("SELECT day, month, year, SUM(bcalories + lcalories + dcalories + scalories) AS 'Total' FROM FT_FoodLogs WHERE id = ? GROUP BY day, month, year", id);
     },
 
     async average(id){
