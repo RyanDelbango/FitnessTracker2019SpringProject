@@ -22,7 +22,7 @@ const model = {
     },
 
     async averageW(id){
-        return await conn.query("SELECT month, year, AVG(weight) AS 'Average weight' FROM FT_ExerciseLogs WHERE id=? GROUP BY month, year", id);
+        return await conn.query("SELECT month, year, AVG(weight) AS 'Average' FROM FT_ExerciseLogs WHERE id=? GROUP BY month, year ORDER BY year DESC", id);
     },
 
     async averageT(id){

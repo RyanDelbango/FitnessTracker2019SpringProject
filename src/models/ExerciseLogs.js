@@ -11,6 +11,12 @@ export async function GetExerciseLogsUser(){
     return x;
 }
 
+export async function GetExerciseLogsAvgW(){
+    const  x  = await api(`ExerciseLogs/averageWeight/${Globals.user.id}`)
+    // console.log(x)
+    return x;
+}
+
 export async function CreateExerciseLog(data){
     const x = await api(`ExerciseLogs/create/${Globals.user.id}`, data)
     return x;

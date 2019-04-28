@@ -29,6 +29,7 @@ import FoodLogsCreate from "./views/FoodLogsCreate.vue";
 import ExerciseLogs from "./views/ExerciseLogs.vue";
 import ExerciseLogsUser from "./views/ExerciseLogsUser.vue";
 import ExerciseLogsCreate from "./views/ExerciseLogsCreate.vue";
+import ExerciseLogsAvgW from "./views/ExerciseLogsAvgW.vue";
 
 Vue.use(Router)
 
@@ -160,6 +161,11 @@ const router = new Router({
       path: '/ExerciseLogs/create/:userid',
       name: 'ExerciseLogsCreate',
       component: ExerciseLogsCreate
+    },
+    {
+      path: '/ExerciseLogs/averageWeight/:userid',
+      name: 'ExerciseLogsAvgW',
+      component: ExerciseLogsAvgW
     },
     {
       path: '/Messages',
