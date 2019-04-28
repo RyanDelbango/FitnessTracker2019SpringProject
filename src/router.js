@@ -25,7 +25,8 @@ import MessagesUser from "./views/MessagesUser.vue";
 import MessagesSend from "./views/MessagesSend.vue";
 import FoodLogs from "./views/FoodLogs.vue";
 import FoodLogsUser from "./views/FoodLogsUser.vue";
-import FoodLogsCreate from "./views/FoodLogsCreate.vue";
+import FoodLogsTotC from "./views/FoodLogsTotC.vue";
+import FoodLogsCreate from "./views/FoodLogsCreate.vue"
 import ExerciseLogs from "./views/ExerciseLogs.vue";
 import ExerciseLogsUser from "./views/ExerciseLogsUser.vue";
 import ExerciseLogsCreate from "./views/ExerciseLogsCreate.vue";
@@ -146,6 +147,11 @@ const router = new Router({
       path: '/FoodLogs/create/:userid',
       name: 'FoodLogsCreate',
       component: FoodLogsCreate
+    },
+    {
+      path: '/FoodLogs/totalcalories/:userid',
+      name: 'FoodLogsTotC',
+      component: FoodLogsTotC
     },
     {
       path: '/ExerciseLogs',

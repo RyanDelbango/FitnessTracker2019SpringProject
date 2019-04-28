@@ -11,6 +11,12 @@ export async function GetFoodLogsUser(){
     return x;
 }
 
+export async function GetFoodLogsTotC(){
+    const  x  = await api(`FoodLogs/totalcalories/${Globals.user.id}`)
+    // console.log(x)
+    return x;
+}
+
 export async function CreateFoodLog(data){
     const x = await api(`FoodLogs/create/${Globals.user.id}`, data)
     return x;

@@ -33,9 +33,8 @@ export default {
         exerciselogs: []
     }),
     async mounted(){
-        // console.log(Globals.profile.id)
         this.exerciselogs = await GetExerciseLogsAvgW()
-        console.log(this.exerciselogs)
+        // console.log(this.exerciselogs)
     }
 }
 </script>

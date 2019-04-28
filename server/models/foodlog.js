@@ -18,11 +18,11 @@ const model = {
     },
 
     async total(id){
-        return await conn.query("SELECT day, month, year, SUM(bcalories + lcalories + dcalories) AS 'Total Calories' FROM FT_FoodLogs WHERE id = ? GROUP BY day, month, year", id);
+        return await conn.query("SELECT day, month, year, SUM(bcalories + lcalories + dcalories) AS 'Total' FROM FT_FoodLogs WHERE id = ? GROUP BY day, month, year", id);
     },
 
     async average(id){
-        return await conn.query("SELECT month, year, AVG(bcalories + lcalories + dcalories) AS 'Average Calories Per Month' FROM FT_FoodLogs WHERE id = ? GROUP BY month, year", id);
+        return await conn.query("SELECT month, year, AVG(bcalories + lcalories + dcalories) AS 'Average' FROM FT_FoodLogs WHERE id = ? GROUP BY month, year", id);
     },
     
     async create(userid, input){
