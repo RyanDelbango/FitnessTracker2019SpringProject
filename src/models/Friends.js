@@ -10,6 +10,11 @@ export async function GetFriendsUser(){
     return x;
 }
 
+export async function SearchFriends(data){
+    const x = await api(`friends/searchlastName/${Globals.user.id}`, data)
+    return x;
+}
+
 export async function AddFriend(data){
     const x = await api(`friends/add/${Globals.user.id}/${Globals.friend.id}`, data)
     return x;

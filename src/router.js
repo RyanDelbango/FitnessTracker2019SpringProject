@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import MyFriends from "./views/MyFriends.vue";
 import MyFriendsUser from "./views/MyFriendsUser.vue";
 import MyFriendsAdd from "./views/MyFriendsAdd.vue";
+import FriendsSearch from "./views/FriendsSearch.vue";
 import Register from "./views/Register.vue";
 import Login from "./views/Login.vue";
 import Users from "./views/Users.vue";
@@ -57,6 +58,11 @@ const router = new Router({
       path: '/MyFriends/:userid/:friendid',
       name: 'my-friendsAdd',
       component: MyFriendsAdd
+    },
+    {
+      path: '/MyFriends/search/name/:userid',
+      name: 'my-friendsSearch',
+      component: FriendsSearch
     },
     {
       path: '/Register',
