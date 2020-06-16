@@ -1,4 +1,9 @@
-# fitnessvue
+# Fitness Tracker
+# An app to keep track of your fitness.
+
+# Here is a quick look at some features included.
+
+![](FitnessTrackerQuickWalkthrough.gif)
 
 ## Project setup
 ```
