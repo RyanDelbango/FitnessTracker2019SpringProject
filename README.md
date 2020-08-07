@@ -2,7 +2,6 @@
 # Here is a quick look at some features included:
 
 ![](FitnessTrackerQuickWalkthrough.gif)
-![](FitnessTrackerQuickWalkthrough2.gif)
 ![](FitnessTrackerQuickWalkthrough3.gif)
 
 ## Project setup
